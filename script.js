@@ -11,7 +11,7 @@ function verwerkScans(scans){
     for(let si of scans){
         let letter = si.code.substring(8,9);
         console.log(letter);
-        if(not(letter in secties)){
+        if(!(letter in secties)){
             secties.push(letter);
         }
         }
