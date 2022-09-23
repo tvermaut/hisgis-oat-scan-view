@@ -10,5 +10,5 @@
 
 th > tr {
 text-align: center;
-margin:auto;
+    vertical-align: middle;
 }
