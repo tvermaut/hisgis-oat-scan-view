@@ -10,8 +10,7 @@ function verwerkScans(scans){
     console.log(scans);
     for(let si of scans){
         let letter = si.code.substring(8,9);
-        console.log(letter);
-        if(!(letter in secties)){
+        if(secties.findIndex(letter) < 0){
             secties.push(letter);
         }
         }
