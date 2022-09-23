@@ -8,6 +8,6 @@
     right:0;
 }
 
-td > thead{
+td > tr > thead{
 text-align: center;
 }
