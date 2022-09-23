@@ -7,3 +7,7 @@
 #oat{
     right:0;
 }
+
+td > thead{
+text-align: center;
+}
