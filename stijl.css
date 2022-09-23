@@ -3,3 +3,7 @@
     -ms-writing-mode: tb-lr;
     transform: rotate(-180deg);
 }
+
+#oat{
+    right:0;
+}
