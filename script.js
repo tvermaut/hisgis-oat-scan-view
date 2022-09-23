@@ -6,7 +6,7 @@ if(q.length>1){
 }
 
 function verwerkScans(scans){
-    secties = [];
+    var secties = [];
     console.log(scans);
     for(let si of scans){
         let letter = si.code.substring(8,9);
