@@ -9,7 +9,7 @@ if(q.length>1){
 function verwerkScans(scans){
 secties = [];
 console.log(scans);
-for(let si in scans){
-    //console.log(scans);
+for(let si of scans){
+    console.log(si);
 }
 }
