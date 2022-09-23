@@ -1,0 +1,5 @@
+.verticaal{
+    writing-mode: vertical-rl;
+    -ms-writing-mode: tb-lr;
+    transform: rotate(-180deg);
+}
