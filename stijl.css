@@ -12,3 +12,7 @@ th {
 text-align: center;
     vertical-align: middle;
 }
+
+.onder{
+    border-bottom: 3px solid black;
+}
