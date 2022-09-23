@@ -5,11 +5,10 @@ if(q.length>1){
         .then((data) => verwerkScans(data));
 }
 
-
 function verwerkScans(scans){
 secties = [];
 console.log(scans);
 for(let si of scans){
-    console.log(si);
+    console.log(si.code);
 }
 }
