@@ -17,10 +17,10 @@ text-align: center;
     border-bottom: 3px solid black;
 }
 
-.uit{
+th .uit{
     font-size: 0.8rem;
     font-weight: normal;
     color: #555555;
-    background-color:#cccccc;
+    background-color:#dddddd;
     padding:0.1rem;
 }
