@@ -13,11 +13,11 @@ text-align: center;
     vertical-align: middle;
 }
 
-.onder th{
+th.onder {
     border-bottom: 3px solid black;
 }
 
-th .uit{
+th.uit{
     font-size: 0.8rem;
     font-weight: normal;
     color: #555555;
