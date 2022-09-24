@@ -18,7 +18,8 @@ text-align: center;
 }
 
 .uit{
-    text-size: 0.8rem;
+    text-size: 0.5rem;
+    font-weight: normal;
     color: #555555;
     background-color:#cccccc;
 }
