@@ -16,3 +16,8 @@ text-align: center;
 .onder th{
     border-bottom: 3px solid black;
 }
+
+.uit{
+    text-size: 0.8rem;
+    color: #555555;
+}
