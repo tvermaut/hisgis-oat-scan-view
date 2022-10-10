@@ -31,7 +31,7 @@ function verwerkScan(s){
         let huidig = parseInt(px);
         if(huidig == 0 || p_sort[huidig-1].artikelLink.artikelnr != (p_sort[huidig]).artikelLink.artikelnr){
             var i = 1;
-            while(p_sort.length >= (huidig+i) && (p_sort[huidig]).artikelLink.artikelnr == (p_sort[huidig+i]).artikelLink.artikelnr){aantal_a++; i++}
+            while(p_sort.length > (huidig+i) && (p_sort[huidig]).artikelLink.artikelnr == (p_sort[huidig+i]).artikelLink.artikelnr){aantal_a++; i++}
             let aid = p.artikelLink.artikelnr;
             if(p.artikelLink.artikelnrtvg){aid += p.artikelLink.artikelnrtvg;}
             let a = artikelen[aid];
