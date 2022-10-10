@@ -277,7 +277,7 @@ class Verwijzing extends RPI {
         super();
         this.inRelatieTot = (json.hasOwnProperty("inRelatieTot") ? new Persoon(json.inRelatieTot) : null);
         this.persoon = (json.hasOwnProperty("persoon") ? new Persoon(json.persoon) : null);
-        this.verwijzing = (json.verwijzing in d_verw ? dverw[json.verwijzing] : json_verwijzing);
+        this.verwijzing = (json.verwijzing in d_verw ? d_verw[json.verwijzing] : json_verwijzing);
     }
 
     lbl(){
