@@ -31,6 +31,10 @@ function verwerkScan(s){
         let as = getArtikelHTML(a);
         for(let ai of as){pi.appendChild(ai);}
 
+        // grondgebruik
+        let soort = document.createElement("td");
+        soort.innerHTML = p.grondGebruik;
+        pi.appendChild(soort);
 
         t.appendChild(pi);
     }
