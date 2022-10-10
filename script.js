@@ -203,7 +203,7 @@ function getArtikelHTML(a, aantal){
             x.setAttribute("class","border-end");
             let pv = new Verwijzing(a.rechtsPersonen[0].persoonsVerwijzing);
             if(aantal > 1){
-                persoon_h.setAttribute("class","container border-end");
+                x.setAttribute("class","container border-end");
                 let accolade = document.createElement("div");
                 accolade.setAttribute("class", "accolade");
                 let inhoud = document.createElement("div");
@@ -211,7 +211,7 @@ function getArtikelHTML(a, aantal){
 
                 inhoud.innerHTML = pv.lbl();
                 accolade.appendChild(inhoud);
-                persoon_h.appendChild(accolade);
+                x.appendChild(accolade);
             } else {
                 x.innerHTML = pv.lbl();
             }
