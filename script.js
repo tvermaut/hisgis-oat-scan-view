@@ -140,7 +140,7 @@ function getArtikelHTML(a, aantal){
         } else if (a.rechtsPersonen[0].type == "INSTANTIE"){
             let x = document.createElement("td");
             x.setAttribute("colspan",4);
-            let instantie = new Instantie(a.rechtsPersonen[0]);
+            let instantie = new Instantie(a.rechtsPersonen[0].instantie);
             x.innerHTML = instantie.lbl();
             h.push(x);
         } else {
