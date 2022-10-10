@@ -309,6 +309,7 @@ class PerceelTarieven {
     ts_geb;
 
     constructor(json){
+        console.log(json);
         for(x in json){
             console.log(x);
             if(x.tarief.tariefsoort.type == "ONGEBOUWD"){
