@@ -21,7 +21,7 @@ function verwerkScan(s){
         pnr.innerHTML = p.perceelnr;
         if(p.perceelnrtvg){pnr.innerHTML += "/" + p.perceelnrtvg;}
         pi.appendChild(pnr);
-        $('tbl_percelen').appendChild(pi);
+        document.getElementById('tbl_percelen').appendChild(pi);
     }
     //console.log(secties);
     }
