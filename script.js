@@ -315,9 +315,9 @@ class Persoon extends RPI {
         l += ((this.voornaam.length > 0 && l.length > 0) ? ' ' : '' ) + this.voornaam;
         l += ((this.voorvoegsel.length > 0 && l.length > 0) ? ' ' : '' ) + this.voorvoegsel;
         l += ((this.achternaam.length > 0 && l.length > 0) ? ' ' : '' ) + this.achternaam;
-        if(this.beroep.length > 0 && this.woonplaats.length > 0){l += ' (<span class="badge beroep">' + this.beroep + '</span> te <span class="badge plaats">' + this.woonplaats + '</span>)';}
-        else if (this.beroep.length > 0){l += ' (<span class="badge beroep">' + this.beroep + '</span>)';}
-        else if (this.woonplaats.length > 0){l += ' (<span class="badge plaats">' + this.woonplaats + '</span>)';}
+        if(this.beroep.length > 0 && this.woonplaats.length > 0){l += ' (<span class="badge beroep p-1">' + this.beroep + '</span> te <span class="badge plaats p-1">' + this.woonplaats + '</span>)';}
+        else if (this.beroep.length > 0){l += ' (<span class="badge beroep p-1">' + this.beroep + '</span>)';}
+        else if (this.woonplaats.length > 0){l += ' (<span class="badge plaats p-1">' + this.woonplaats + '</span>)';}
         return l
     }
 }
@@ -343,7 +343,7 @@ class Instantie extends RPI {
         l += (l.length > 0 && this.naam.length > 0) ? ' ' : '';
         l += this.naam || '';
         l += (l.length > 0 && this.plaats.length > 0) ? ' te ' : '';
-        l += '<span class="badge plaats">' + this.plaats + '</span>' || '';
+        l += '<span class="badge plaats p-1">' + this.plaats + '</span>' || '';
         return l
     }
 }
