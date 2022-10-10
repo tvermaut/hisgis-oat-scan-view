@@ -97,7 +97,7 @@ function getArtikelHTML(a, aantal){
             let accolade = document.createElement("div");
             accolade.setAttribute("class", "accolade");
             let inhoud = document.createElement("div");
-            inhoud.setAttribute("class", "content");
+            inhoud.setAttribute("class", "content align-middle");
             inhoud.innerHTML = p.achternaam;
             accolade.appendChild(inhoud);
             naam_h.appendChild(accolade);
