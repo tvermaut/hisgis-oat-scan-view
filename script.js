@@ -226,7 +226,20 @@ function getArtikelHTML(a, aantal){
             x.setAttribute("colspan",5);
             x.setAttribute("class","border-end");
             let instantie = new Instantie(a.rechtsPersonen[0].instantie);
-            x.innerHTML = anr + instantie.lbl();
+
+            if(aantal > 1){
+                x.setAttribute("class","container border-end");
+                let accolade = document.createElement("div");
+                accolade.setAttribute("class", "accolade");
+                let inhoud = document.createElement("div");
+                inhoud.setAttribute("class", "content my-auto");
+
+                inhoud.innerHTML = anr + instantie.lbl();
+                accolade.appendChild(inhoud);
+                x.appendChild(accolade);
+            } else {
+                x.innerHTML = anr + instantie.lbl();
+            }
             h.push(x);
         } else {
             console.error("onherkend type: " + a.rechtsPersonen[0].type);
