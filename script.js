@@ -29,8 +29,8 @@ function verwerkScan(s){
         console.log("test: ");
         console.log(px);
         console.log((p_sort[px]).artikelLink);
-        console.log((p_sort[px++]).artikelLink);
-        while(p_sort.length >= px++ && (p_sort[px]).artikelLink.artikelnr == p_sort[px++].artikelLink.artikelnr){aantal_a++;}
+        console.log((p_sort[px+1]).artikelLink);
+        while(p_sort.length >= (px+1) && (p_sort[px]).artikelLink.artikelnr == p_sort[px+1].artikelLink.artikelnr){aantal_a++;}
         let aid = p.artikelLink.artikelnr;
         if(p.artikelLink.artikelnrtvg){aid += p.artikelLink.artikelnrtvg;}
         let a = artikelen[aid];
