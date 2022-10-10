@@ -117,16 +117,22 @@ function getOppervlakHTML(opp){
 
 function getBedragHTML(b){
     var h = [];
-    let c = b % 100;
-    let g = (b-c)/100;
-    let c_h = document.createElement("td");
-    c_h.setAttribute("class","ps-0 text-end");
-    c_h.innerHTML = (c == 0 ? '' : String(c).padStart(2,'0'));
-    let g_h = document.createElement("td");
-    g_h.setAttribute("class","pe-0 text-end");
-    g_h.innerHTML = g;
-    h.push(g_h);
-    h.push(c_h);
+    if(b > 0){
+        let c = b % 100;
+        let g = (b-c)/100;
+        let c_h = document.createElement("td");
+        c_h.setAttribute("class","ps-0 text-end");
+        c_h.innerHTML = (c == 0 ? '' : String(c).padStart(2,'0'));
+        let g_h = document.createElement("td");
+        g_h.setAttribute("class","pe-0 text-end");
+        g_h.innerHTML = g;
+        h.push(g_h);
+        h.push(c_h);
+    } else {
+        let x = document.createElement("td");
+        x.setAttribute("colspan","2");
+        h.push(x);
+    }
     return h
 }
 
