@@ -203,11 +203,13 @@ function getArtikelHTML(a, aantal){
         } else {
             console.error("onherkend type: " + a.rechtsPersonen[0].type);
         }
-    } else if (a.rechtspersonen && a.rechtspersonen.length > 1){
+    } else if (a.rechtsPersonen && a.rechtsPersonen.length > 1){
         // meer dan 1 RP
         let x = document.createElement("td");
         x.setAttribute("colspan",4);
         h.push(x);
+    } else {
+        console.error(a.rechtsPersonen)
     }
 
 
@@ -331,9 +333,9 @@ class PerceelTarieven {
     ts_geb;
 
     constructor(json){
-        console.log(json);
+        //console.log(json);
         for(let x of json){
-            console.log(x);
+            //console.log(x);
             if(x.tarief.tariefsoort.type == "ONGEBOUWD"){
                 switch(x.tarief.klasse){
                     case "1":
