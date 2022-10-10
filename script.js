@@ -199,6 +199,8 @@ function getArtikelHTML(a, aantal){
             let x = document.createElement("td");
             x.setAttribute("rowspan", aantal);
             x.setAttribute("colspan",4);
+            let pv = new Verwijzing(a.rechtsPersonen[0].persoonsVerwijzing);
+            x.innerHTML = pv.lbl();
             h.push(x);
         } else if (a.rechtsPersonen[0].type == "INSTANTIE"){
             let x = document.createElement("td");
@@ -264,6 +266,28 @@ class RechtsPersoon {
 class RPI {
     // abstract
     lbl(){}
+}
+
+class Verwijzing extends RPI {
+    inRelatieTot;
+    persoon;
+    verwijzing;
+
+    constructor(json){
+        super();
+        this.inRelatieTot = (json.hasOwnProperty("inRelatieTot") ? new Persoon(json.inRelatieTot) : null);
+        this.persoon = (json.hasOwnProperty("persoon") ? new Persoon(json.persoon) : null);
+        this.verwijzing = json.verwijzing;
+    }
+
+    lbl(){
+        let l = "";
+        l += this.inRelatieTot ? this.inRelatieTot.lbl() : '';
+        l.length > 0 ? ' ' : '';
+        l += "<span class='badge rounded-pill text-bg-info'>" + this.verwijzing + "</span>";
+        l += this.persoon ? ' ' + this.persoon.lbl() : '';
+        return l
+    }
 }
 
 class Persoon extends RPI {
