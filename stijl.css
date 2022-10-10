@@ -48,10 +48,8 @@ body {
   
   .container {
     height: 100vh;
-    padding: 2rem;
   }
   .content {
-    min-height: 8rem;
     border-radius: 2px;
     margin: 2rem 0;
     padding: 1.5rem;
