@@ -67,7 +67,9 @@ function getOppervlakHTML(opp){
     r_h.innerHTML = (r == 0 && b == 0 ? "" : r);
     let b_h = document.createElement("td");
     b_h.innerHTML = (b == 0 ? "" : b);
-    h.push(b_h).push(r_h).push(e_h);
+    h.push(b_h);
+    h.push(r_h);
+    h.push(e_h);
     return h
 }
 
