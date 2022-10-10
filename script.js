@@ -26,6 +26,9 @@ function verwerkScan(s){
         pi.appendChild(pnr);
 
         var aantal_a = 1;
+        console.log("test: ");
+        console.log(px);
+        console.log(p_sort[px]);
         while(p_sort[px].artikelLink.artikelnr == p_sort[px++].artikelLink.artikelnr){aantal_a++;}
         let aid = p.artikelLink.artikelnr;
         if(p.artikelLink.artikelnrtvg){aid += p.artikelLink.artikelnrtvg;}
