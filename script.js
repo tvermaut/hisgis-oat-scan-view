@@ -74,16 +74,14 @@ function verwerkScan(s){
         for(let i of getOppervlakHTML(pts.k3)){pi.appendChild(i);}
         for(let i of getOppervlakHTML(pts.k4)){pi.appendChild(i);}
         for(let i of getOppervlakHTML(pts.k5)){pi.appendChild(i);}
-        // pi.appendChild(pts.k2);
-        // pi.appendChild(pts.k3);
-        // pi.appendChild(pts.k4);
-        // pi.appendChild(pts.k5);
-        // pi.appendChild(pts.k_geb);
-        // pi.appendChild(pts.t1);
-        // pi.appendChild(pts.t2);
-        // pi.appendChild(pts.t3);
-        // pi.appendChild(pts.t4);
-        // pi.appendChild(pts.t5);
+        let k_geb = document.createElement("td");
+        k_geb.innerHTML = pts.k_geb;
+        pi.appendChild(k_geb);
+        for(let i of getBedragHTML(pts.t1)){pi.appendChild(i);}
+        for(let i of getBedragHTML(pts.t2)){pi.appendChild(i);}
+        for(let i of getBedragHTML(pts.t3)){pi.appendChild(i);}
+        for(let i of getBedragHTML(pts.t4)){pi.appendChild(i);}
+        for(let i of getBedragHTML(pts.t5)){pi.appendChild(i);}
 
         t.appendChild(pi);
     }
@@ -324,23 +322,23 @@ class PerceelTarieven {
                 switch(x.tarief.klasse){
                     case "1":
                         this.k1 = x.oppervlak;
-                        this.t1 = getBedragHTML(x.tarief.tarief * x.oppervlak / 100);
+                        this.t1 = x.tarief.tarief * x.oppervlak / 100;
                         break;
                     case "2":
                         this.k2 = x.oppervlak;
-                        this.t2 = getBedragHTML(x.tarief.tarief * x.oppervlak / 100);
+                        this.t2 = x.tarief.tarief * x.oppervlak / 100;
                         break;
                     case "3": 
                         this.k3 = x.oppervlak;
-                        this.t3 = getBedragHTML(x.tarief.tarief * x.oppervlak / 100);
+                        this.t3 = x.tarief.tarief * x.oppervlak / 100;
                         break;
                     case "4":
                         this.k4 = x.oppervlak;
-                        this.t4 = getBedragHTML(x.tarief.tarief * x.oppervlak / 100);
+                        this.t4 = x.tarief.tarief * x.oppervlak / 100;
                         break;
                     case "5":
                         this.k5 = x.oppervlak;
-                        this.t5 = getBedragHTML(x.tarief.tarief * x.oppervlak / 100);
+                        this.t5 = x.tarief.tarief * x.oppervlak / 100;
                         break;
                     default: console.error("klasse niet gekend voor ongebouwd: " + x.tarief.klasse)
                 }
