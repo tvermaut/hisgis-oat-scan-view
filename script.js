@@ -93,14 +93,18 @@ function getArtikelHTML(a, aantal){
             // naam
             let naam_h = document.createElement("td");
             naam_h.setAttribute("rowspan", aantal);
-            if(aantal > 1){naam_h.setAttribute("class","container my-auto")}
-            let accolade = document.createElement("div");
-            accolade.setAttribute("class", "accolade");
-            let inhoud = document.createElement("div");
-            inhoud.setAttribute("class", "content my-auto");
-            inhoud.innerHTML = p.achternaam;
-            accolade.appendChild(inhoud);
-            naam_h.appendChild(accolade);
+            if(aantal > 1){
+                naam_h.setAttribute("class","container my-auto");
+                let accolade = document.createElement("div");
+                accolade.setAttribute("class", "accolade");
+                let inhoud = document.createElement("div");
+                inhoud.setAttribute("class", "content my-auto");
+                inhoud.innerHTML = p.achternaam;
+                accolade.appendChild(inhoud);
+                naam_h.appendChild(accolade);
+            } else {
+                naam_h.innerHTML = p.achternaam;
+            }
             h.push(naam_h);
 
             // voornaam
