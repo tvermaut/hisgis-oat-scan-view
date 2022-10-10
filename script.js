@@ -49,6 +49,11 @@ function verwerkScan(s){
 
         // oppervlakte
         for(let oi of getOppervlakHTML(p.oppervlak)){pi.appendChild(oi);}
+        let samengeteld_oppervlak = document.createElement("td");
+        samengeteld_oppervlak.setAttribute("colspan",3);
+        pi.appendChild(samengeteld_oppervlak);
+
+        // voorlopige klassering
 
         t.appendChild(pi);
     }
@@ -62,10 +67,13 @@ function getOppervlakHTML(opp){
     let r = ((opp-e) % 10000)/100;
     let b = (opp-e-(100*r)) /10000;
     let e_h = document.createElement("td");
-    e_h.innerHTML = (e == 0 && r == 0 && b == 0 ? "" : e);
+    e_h.setAttribute("class","pl-0");
+    e_h.innerHTML = (e == 0 && r == 0 && b == 0 ? "" : String(e).padStart(2,'0'));
     let r_h = document.createElement("td");
-    r_h.innerHTML = (r == 0 && b == 0 ? "" : r);
+    r_h.setAttribute("class","px-0");
+    r_h.innerHTML = (r == 0 && b == 0 ? "" : String(r).padStart(2,'0'));
     let b_h = document.createElement("td");
+    b_h.setAttribute("class","pr-0");
     b_h.innerHTML = (b == 0 ? "" : b);
     h.push(b_h);
     h.push(r_h);
