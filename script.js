@@ -310,6 +310,7 @@ class PerceelTarieven {
 
     constructor(json){
         for(x in json){
+            console.log(x);
             if(x.tarief.tariefsoort.type == "ONGEBOUWD"){
                 switch(x.tarief.klasse){
                     case "1":
