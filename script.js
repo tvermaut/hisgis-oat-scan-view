@@ -92,7 +92,7 @@ function getArtikelHTML(a, aantal){
             // naam
             let naam_h = document.createElement("td");
             naam_h.setAttribute("rowspan", aantal);
-            if(aantal > 1){naam_h.setAttribute("class","border-info border-start border-3")}
+            if(aantal > 1){naam_h.setAttribute("class","border-start-info border-start border-3")}
             naam_h.innerHTML = p.achternaam;
             h.push(naam_h);
 
