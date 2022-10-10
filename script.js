@@ -82,13 +82,13 @@ function getArtikelHTML(a, aantal){
         } else {
             // geen PERSOON
             let x = document.createElement("td");
-            x.setAttribute("collspan",4);
+            x.setAttribute("colspan",4);
             h.push(x);
         }
     } else if (a.rechtspersonen.length > 1){
         // meer dan 1 RP
         let x = document.createElement("td");
-        x.setAttribute("collspan",4);
+        x.setAttribute("colspan",4);
         h.push(x);
     }
 
