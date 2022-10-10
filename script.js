@@ -321,7 +321,7 @@ class Persoon extends RPI {
         l += ((this.voornaam.length > 0 && l.length > 0) ? ' ' : '' ) + this.voornaam;
         l += ((this.voorvoegsel.length > 0 && l.length > 0) ? ' ' : '' ) + this.voorvoegsel;
         l += ((this.achternaam.length > 0 && l.length > 0) ? ' ' : '' ) + this.achternaam;
-        l += (this.jrSr.length > 0 ? '<span class="badge jrSr p-1 mx-1">' + this.jrSr + '</span>' : '');
+        l += (this.jrSr.length > 0 ? '<span class="badge jrSr p-1 mx-1">' + d_jrSr[this.jrSr] + '</span>' : '');
         if(this.beroep.length > 0 && this.woonplaats.length > 0){l += ' (<span class="badge beroep p-1">' + this.beroep + '</span> te <span class="badge plaats p-1">' + this.woonplaats + '</span>)';}
         else if (this.beroep.length > 0){l += ' (<span class="badge beroep p-1">' + this.beroep + '</span>)';}
         else if (this.woonplaats.length > 0){l += ' (<span class="badge plaats p-1">' + this.woonplaats + '</span>)';}
