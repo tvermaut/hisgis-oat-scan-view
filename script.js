@@ -110,6 +110,7 @@ function getOppervlakHTML(opp){
     } else {
         let x = document.createElement("td");
         x.setAttribute("colspan","3");
+        x.setAttribute("class","border")
         h.push(x);
     }
     return h
@@ -130,6 +131,7 @@ function getBedragHTML(b){
         h.push(c_h);
     } else {
         let x = document.createElement("td");
+        x.setAttribute("class","border")
         x.setAttribute("colspan","2");
         h.push(x);
     }
