@@ -26,3 +26,55 @@ function verwerkScan(s){
     }
     //console.log(secties);
     }
+
+function getArtikelHTML(a){
+    var h = [];
+
+    if(a.rechtspersonen.length == 1){
+        if(a.rechtspersonen[0].type == "PERSOON"){
+            let p = a.rechtspersonen[0].persoon;
+
+            // naam
+            let naam_h = document.createElement("td");
+            naam_h.innerHTML = p.naam;
+            h.push(naam_h);
+
+            // voornaam
+            let vnaam_h = document.createElement("td");
+            if(p.titel){vnaam_h.innerHTML += p.titel + " ";}
+            vnaam_h.innerHTML += p.voornaam;
+            if(p.voorvoegsel){vnaam_h.innerHTML += ", " + p.voorvoegsel;}
+            h.push(vnaam_h);
+
+            // beroep
+            let beroep_h = document.createElement("td");
+            beroep_h.innerHTML = p.beroep;
+            h.push(beroep_h);
+
+            // woonplaats
+            let woonplaats_h = document.createElement("td");
+            woonplaats_h.innerHTML = p.woonplaats;
+            h.push(woonplaats_h);
+        } else {
+            // geen PERSOON
+        }
+    } else if (a.rechtspersonen.length > 1){
+        // meer dan 1 RP
+    }
+
+
+    // artikelnummer
+    let anr_html = document.createElement("td");
+    let anr = a.artikelnr;
+    if(a.artikelnrtvg){anr += "/" + a.artikelnrtvg;}
+    anr_html.innerHTML = anr;
+    h.push(anr_html);
+    return h
+}
+
+
+
+// function getPersoonHTML(p){
+
+//     return h
+// }
