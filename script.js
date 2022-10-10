@@ -36,9 +36,9 @@ function verwerkScan(s){
 function getArtikelHTML(a){
     var h = [];
 
-    if(a.rechtspersonen.length == 1){
-        if(a.rechtspersonen[0].type == "PERSOON"){
-            let p = a.rechtspersonen[0].persoon;
+    if(a.rechtsPersonen.length == 1){
+        if(a.rechtsPersonen[0].type == "PERSOON"){
+            let p = a.rechtsPersonen[0].persoon;
 
             // naam
             let naam_h = document.createElement("td");
