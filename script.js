@@ -192,10 +192,12 @@ function getArtikelHTML(a, aantal){
         } else if (a.rechtsPersonen[0].type == "VERWIJZING") {
             // geen PERSOON
             let x = document.createElement("td");
+            x.setAttribute("rowspan", aantal);
             x.setAttribute("colspan",4);
             h.push(x);
         } else if (a.rechtsPersonen[0].type == "INSTANTIE"){
             let x = document.createElement("td");
+            x.setAttribute("rowspan", aantal);
             x.setAttribute("colspan",4);
             let instantie = new Instantie(a.rechtsPersonen[0].instantie);
             x.innerHTML = instantie.lbl();
@@ -206,6 +208,7 @@ function getArtikelHTML(a, aantal){
     } else if (a.rechtsPersonen && a.rechtsPersonen.length > 1){
         // meer dan 1 RP
         let x = document.createElement("td");
+        x.setAttribute("rowspan", aantal);
         x.setAttribute("colspan",4);
         h.push(x);
     } else {
