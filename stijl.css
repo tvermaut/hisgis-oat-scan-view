@@ -60,7 +60,12 @@ th.uit{
 }
 
 
-
+.artikelnr{
+    background-color: rgba(0,100,0,0.4) !important;
+    font-weight:normal;
+    font-size: bold;
+    color: black;    
+}
 
 
 

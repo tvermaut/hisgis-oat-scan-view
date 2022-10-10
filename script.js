@@ -150,13 +150,17 @@ function getBedragHTML(b){
 function getArtikelHTML(a, aantal){
     var h = [];
 
+    var anr = a.artikelnr;
+    if(a.artikelnrtvg){anr += "/" + a.artikelnrtvg;}
+    anr = '<span class="badge artikelnr p-2 mx-2">' + anr + '</span>';
+
     if(a.rechtsPersonen && a.rechtsPersonen.length == 1){
         if(a.rechtsPersonen[0].type == "PERSOON"){
             let p = new Persoon(a.rechtsPersonen[0].persoon);
 
             let persoon_h = document.createElement("td");
             persoon_h.setAttribute("rowspan", aantal);
-            persoon_h.setAttribute("colspan", 4);
+            persoon_h.setAttribute("colspan", 5);
             if(aantal > 1){
                 persoon_h.setAttribute("class","container border-end");
                 let accolade = document.createElement("div");
@@ -164,7 +168,7 @@ function getArtikelHTML(a, aantal){
                 let inhoud = document.createElement("div");
                 inhoud.setAttribute("class", "content my-auto");
 
-                inhoud.innerHTML = p.lbl();
+                inhoud.innerHTML = anr + p.lbl();
                 accolade.appendChild(inhoud);
                 persoon_h.appendChild(accolade);
             } else {
@@ -199,7 +203,7 @@ function getArtikelHTML(a, aantal){
             // geen PERSOON
             let x = document.createElement("td");
             x.setAttribute("rowspan", aantal);
-            x.setAttribute("colspan",4);
+            x.setAttribute("colspan",5);
             x.setAttribute("class","border-end");
             let pv = new Verwijzing(a.rechtsPersonen[0].persoonsVerwijzing);
             if(aantal > 1){
@@ -209,20 +213,20 @@ function getArtikelHTML(a, aantal){
                 let inhoud = document.createElement("div");
                 inhoud.setAttribute("class", "content my-auto");
 
-                inhoud.innerHTML = pv.lbl();
+                inhoud.innerHTML = anr + pv.lbl();
                 accolade.appendChild(inhoud);
                 x.appendChild(accolade);
             } else {
-                x.innerHTML = pv.lbl();
+                x.innerHTML = anr + pv.lbl();
             }
             h.push(x);
         } else if (a.rechtsPersonen[0].type == "INSTANTIE"){
             let x = document.createElement("td");
             x.setAttribute("rowspan", aantal);
-            x.setAttribute("colspan",4);
+            x.setAttribute("colspan",5);
             x.setAttribute("class","border-end");
             let instantie = new Instantie(a.rechtsPersonen[0].instantie);
-            x.innerHTML = instantie.lbl();
+            x.innerHTML = anr + instantie.lbl();
             h.push(x);
         } else {
             console.error("onherkend type: " + a.rechtsPersonen[0].type);
@@ -231,21 +235,22 @@ function getArtikelHTML(a, aantal){
         // meer dan 1 RP
         let x = document.createElement("td");
         x.setAttribute("rowspan", aantal);
-        x.setAttribute("colspan",4);
+        x.setAttribute("colspan",5);
         h.push(x);
     } else {
         console.error(a.rechtsPersonen)
     }
 
 
-    // artikelnummer
-    let anr_html = document.createElement("td");
-    anr_html.setAttribute("rowspan", aantal);
-    let anr = a.artikelnr;
-    if(a.artikelnrtvg){anr += "/" + a.artikelnrtvg;}
-    anr_html.innerHTML = anr;
-    anr_html.setAttribute("class","pe-1 text-end");
-    h.push(anr_html);
+    // // artikelnummer
+    // let anr_html = document.createElement("td");
+    // anr_html.setAttribute("rowspan", aantal);
+
+
+
+    // anr_html.innerHTML = anr;
+    // anr_html.setAttribute("class","pe-1 text-end");
+    // h.push(anr_html);
     return h
 }
 
