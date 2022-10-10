@@ -88,7 +88,7 @@ function getArtikelHTML(a, aantal){
 
     // artikelnummer
     let anr_html = document.createElement("td");
-    anr_html.setAttribute()
+    anr_html.setAttribute("rowspan", aantal);
     let anr = a.artikelnr;
     if(a.artikelnrtvg){anr += "/" + a.artikelnrtvg;}
     anr_html.innerHTML = anr;
