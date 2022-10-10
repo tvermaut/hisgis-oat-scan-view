@@ -52,6 +52,7 @@ td {
 
   .content {
     border-radius: 2px;
+    margin: auto;
     /* margin: 2rem 0;
     padding: 1.5rem; */
   }
