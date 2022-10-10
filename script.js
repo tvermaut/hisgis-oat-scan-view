@@ -42,10 +42,34 @@ function verwerkScan(s){
         soort.innerHTML = p.grondGebruik;
         pi.appendChild(soort);
 
+        // huisnrs
+        let huisnrs = document.createElement("td");
+        soort.innerHTML = p.huisnrs.join(', ');
+        pi.appendChild(huisnrs);
+
+        // oppervlakte
+        for(let oi of getOppervlakHTML(p.oppervlak)){pi.appendChild(oi);}
+
         t.appendChild(pi);
     }
     //console.log(secties);
     }
+
+
+function getOppervlakHTML(opp){
+    var h = [];
+    let e = opp % 100;
+    let r = ((opp-e) % 10000)/100;
+    let b = (opp-e-(100*r)) /10000;
+    let e_h = document.createElement("td");
+    e_h.innerHTML = (e == 0 && r == 0 && b == 0 ? "" : e);
+    let r_h = document.createElement("td");
+    r_h.innerHTML = (r == 0 && b == 0 ? "" : r);
+    let b_h = document.createElement("td");
+    b_h.innerHTML = (b == 0 ? "" : b);
+    h.push(b_h).push(r_h).push(e_h);
+    return h
+}
 
 function getArtikelHTML(a, aantal){
     var h = [];
