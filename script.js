@@ -28,7 +28,7 @@ function verwerkScan(s){
         var aantal_a = 1;
         let huidig = parseInt(px);
         let volgend = huidig + 1;
-        while(p_sort[huidig] && (p_sort[huidig]).artikelLink.artikelnr == p_sort[volgend].artikelLink.artikelnr){aantal_a++;}
+        while(p_sort.length >= volgend && (p_sort[huidig]).artikelLink.artikelnr == p_sort[volgend].artikelLink.artikelnr){aantal_a++;}
         let aid = p.artikelLink.artikelnr;
         if(p.artikelLink.artikelnrtvg){aid += p.artikelLink.artikelnrtvg;}
         let a = artikelen[aid];
