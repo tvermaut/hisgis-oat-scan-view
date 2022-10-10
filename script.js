@@ -15,7 +15,8 @@ function verwerkScan(s){
         if(a.artikelnrtvg){artikelid += a.artikelnrtvg;}
         artikelen[artikelid] = a;
         }
-    for(let p of s.results){
+    let p_sort = s.results.sort((p1, p2) => (p1.perceelnr < p2.perceelnr) ? 1 : (p1.perceelnr > p2.perceelnr) ? -1 : 0);        
+    for(let p of p_sort){
         let pi = document.createElement("tr");
         let pnr = document.createElement("td");
         pnr.innerHTML = p.perceelnr;
