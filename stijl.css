@@ -51,11 +51,11 @@ body {
   }
   .content {
     border-radius: 2px;
-    margin: 2rem 0;
-    padding: 1.5rem;
+    /* margin: 2rem 0;
+    padding: 1.5rem; */
   }
   .accolade .content {
-    padding-left: 3rem;
+    padding-left: 1rem;
   }
   .accolade {
     position: relative;
