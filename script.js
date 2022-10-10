@@ -17,18 +17,20 @@ function verwerkScan(s){
         artikelen[artikelid] = a;
         }
     let p_sort = s.results.sort((p1, p2) => (p1.perceelnr < p2.perceelnr) ? -1 : (p1.perceelnr > p2.perceelnr) ? 1 : 0);        
-    for(let p of p_sort){
+    for(let px in p_sort){
+        let p = p_sort[px];
         let pi = document.createElement("tr");
         let pnr = document.createElement("td");
         pnr.innerHTML = p.perceelnr;
         if(p.perceelnrtvg){pnr.innerHTML += "/" + p.perceelnrtvg;}
         pi.appendChild(pnr);
 
-
+        var aantal_a = 1;
+        while(p_sort[px].artikelLink.artikelnr == p_sort[px++].artikelLink.artikelnr){aantal_a++;}
         let aid = p.artikelLink.artikelnr;
         if(p.artikelLink.artikelnrtvg){aid += p.artikelLink.artikelnrtvg;}
         let a = artikelen[aid];
-        let as = getArtikelHTML(a);
+        let as = getArtikelHTML(a, aantal_a);
         for(let ai of as){pi.appendChild(ai);}
 
         // grondgebruik
@@ -41,7 +43,7 @@ function verwerkScan(s){
     //console.log(secties);
     }
 
-function getArtikelHTML(a){
+function getArtikelHTML(a, aantal){
     var h = [];
 
     if(a.rechtsPersonen.length == 1){
@@ -50,11 +52,13 @@ function getArtikelHTML(a){
 
             // naam
             let naam_h = document.createElement("td");
+            naam_h.setAttribute("rowspan", aantal);
             naam_h.innerHTML = p.achternaam;
             h.push(naam_h);
 
             // voornaam
             let vnaam_h = document.createElement("td");
+            vnaam_h.setAttribute("rowspan", aantal);
             if(p.titel){vnaam_h.innerHTML += p.titel + " ";}
             vnaam_h.innerHTML += p.voornaam;
             if(p.voorvoegsel){vnaam_h.innerHTML += ", " + p.voorvoegsel;}
@@ -62,11 +66,13 @@ function getArtikelHTML(a){
 
             // beroep
             let beroep_h = document.createElement("td");
+            beroep_h.setAttribute("rowspan", aantal);
             beroep_h.innerHTML = p.beroep;
             h.push(beroep_h);
 
             // woonplaats
             let woonplaats_h = document.createElement("td");
+            woonplaats_h.setAttribute("rowspan", aantal);
             woonplaats_h.innerHTML = p.woonplaats;
             h.push(woonplaats_h);
         } else {
@@ -79,13 +85,13 @@ function getArtikelHTML(a){
 
     // artikelnummer
     let anr_html = document.createElement("td");
+    anr_html.setAttribute()
     let anr = a.artikelnr;
     if(a.artikelnrtvg){anr += "/" + a.artikelnrtvg;}
     anr_html.innerHTML = anr;
     h.push(anr_html);
     return h
 }
-
 
 
 // function getPersoonHTML(p){
