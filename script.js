@@ -214,7 +214,7 @@ class Persoon extends RPI {
     }
 
     lbl(){
-        let l = this.titel;
+        let l = this.titel || '';
         l += ((this.voornaam.length > 0 && l.length > 0) ? ' ' : '' ) + this.voornaam;
         l += ((this.voorvoegsel.length > 0 && l.length > 0) ? ' ' : '' ) + this.voorvoegsel;
         l += ((this.achternaam.length > 0 && l.length > 0) ? ' ' : '' ) + this.achternaam;
@@ -240,7 +240,7 @@ class Instantie extends RPI {
     }
 
     lbl(){
-        let l = this.gezindte;
+        let l = this.gezindte || '';
         l += (l.length > 0 && this.type.length > 0) ? ' ' : '';
         l += this.type;
         l += (l.length > 0 && this.naam.length > 0) ? ' ' : '';
