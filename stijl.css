@@ -46,11 +46,16 @@ body {
     --color-background: var(--color-white)
   }
   
+td {
+    height:inherit;
+}
+
   .container {
     height: 100%;
   }
   .content {
     border-radius: 2px;
+    height: 100%;
     /* margin: 2rem 0;
     padding: 1.5rem; */
   }
@@ -58,6 +63,7 @@ body {
     padding-left: 1rem;
   }
   .accolade {
+    height: 100%;
     position: relative;
     background: inherit;
   }
