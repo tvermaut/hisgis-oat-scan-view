@@ -75,7 +75,7 @@ function getArtikelHTML(a){
     let anr = a.artikelnr;
     if(a.artikelnrtvg){anr += "/" + a.artikelnrtvg;}
     anr_html.innerHTML = anr;
-    h.appendChild(anr_html);
+    h.push(anr_html);
     return h
 }
 
