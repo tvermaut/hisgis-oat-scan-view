@@ -6,7 +6,7 @@ if(q.length>1){
 }
 
 function verwerkScan(s){
-    console.log(s);
+    // console.log(s);
     var t = document.getElementById('tbl_percelen');
     var artikelen = [];
     var percelen = [];
@@ -149,7 +149,7 @@ function getBedragHTML(b){
 function getArtikelHTML(a, aantal){
     var h = [];
 
-    if(a.rechtsPersonen.length == 1){
+    if(a.rechtsPersonen && a.rechtsPersonen.length == 1){
         if(a.rechtsPersonen[0].type == "PERSOON"){
             let p = a.rechtsPersonen[0].persoon;
 
@@ -203,7 +203,7 @@ function getArtikelHTML(a, aantal){
         } else {
             console.error("onherkend type: " + a.rechtsPersonen[0].type);
         }
-    } else if (a.rechtspersonen.length > 1){
+    } else if (a.rechtspersonen && a.rechtspersonen.length > 1){
         // meer dan 1 RP
         let x = document.createElement("td");
         x.setAttribute("colspan",4);
