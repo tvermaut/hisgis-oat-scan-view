@@ -66,11 +66,11 @@ function verwerkScan(s){
         pi.appendChild(voorlopige_klassering);
 
         let pts = new PerceelTarieven(p.PerceelTarieven);
-        for(let i of pts.k1){pi.appendChild(i);}
-        for(let i of pts.k2){pi.appendChild(i);}
-        for(let i of pts.k3){pi.appendChild(i);}
-        for(let i of pts.k4){pi.appendChild(i);}
-        for(let i of pts.k5){pi.appendChild(i);}
+        for(let i in pts.k1){pi.appendChild(i);}
+        for(let i in pts.k2){pi.appendChild(i);}
+        for(let i in pts.k3){pi.appendChild(i);}
+        for(let i in pts.k4){pi.appendChild(i);}
+        for(let i in pts.k5){pi.appendChild(i);}
         // pi.appendChild(pts.k2);
         // pi.appendChild(pts.k3);
         // pi.appendChild(pts.k4);
