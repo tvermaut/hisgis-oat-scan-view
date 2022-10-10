@@ -87,7 +87,8 @@ td {
 
   .content {
     border-radius: 2px;
-    display: table-cell;
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
     align-content: center;
     height: 100%;
