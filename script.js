@@ -28,13 +28,14 @@ function verwerkScan(s){
         let aid = p.artikelLink.artikelnr;
         if(p.artikelLink.artikelnrtvg){aid += p.artikelLink.artikelnrtvg;}
         let a = artikelen[aid];
-        t.appendChild(getArtikelHTML(a));
+        let as = getArtikelHTML(a);
+        for(let ai of as){t.appendChild(ai);}
     }
     //console.log(secties);
     }
 
 function getArtikelHTML(a){
-    var h = [];
+    var h = NodeList;
 
     if(a.rechtsPersonen.length == 1){
         if(a.rechtsPersonen[0].type == "PERSOON"){
@@ -74,7 +75,7 @@ function getArtikelHTML(a){
     let anr = a.artikelnr;
     if(a.artikelnrtvg){anr += "/" + a.artikelnrtvg;}
     anr_html.innerHTML = anr;
-    h.push(anr_html);
+    h.appendChild(anr_html);
     return h
 }
 
