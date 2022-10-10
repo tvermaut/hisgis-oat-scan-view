@@ -52,7 +52,10 @@ td {
 
   .content {
     border-radius: 2px;
-    margin: auto;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    height: 100%;
     /* margin: 2rem 0;
     padding: 1.5rem; */
   }
