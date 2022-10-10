@@ -65,6 +65,8 @@ function verwerkScan(s){
         let voorlopige_klassering = document.createElement("td");
         pi.appendChild(voorlopige_klassering);
 
+        console.log("nu starten met perceelTarieven:");
+        console.log(p.PerceelTarieven);
         var pts = new PerceelTarieven(p.PerceelTarieven);
         console.log(pts);
         for(let i in pts.k1){pi.appendChild(i);}
