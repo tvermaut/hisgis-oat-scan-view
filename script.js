@@ -70,10 +70,10 @@ function verwerkScan(s){
         var pts = new PerceelTarieven(p.perceelTarieven);
         console.log(pts);
         for(let i of getOppervlakHTML(pts.k1)){pi.appendChild(i);}
-        // for(let i in pts.k2){pi.appendChild(i);}
-        // for(let i in pts.k3){pi.appendChild(i);}
-        // for(let i in pts.k4){pi.appendChild(i);}
-        // for(let i in pts.k5){pi.appendChild(i);}
+        for(let i of getOppervlakHTML(pts.k2)){pi.appendChild(i);}
+        for(let i of getOppervlakHTML(pts.k3)){pi.appendChild(i);}
+        for(let i of getOppervlakHTML(pts.k4)){pi.appendChild(i);}
+        for(let i of getOppervlakHTML(pts.k5)){pi.appendChild(i);}
         // pi.appendChild(pts.k2);
         // pi.appendChild(pts.k3);
         // pi.appendChild(pts.k4);
@@ -93,21 +93,27 @@ function verwerkScan(s){
 
 function getOppervlakHTML(opp){
     var h = [];
-    let e = opp % 100;
-    let r = ((opp-e) % 10000)/100;
-    let b = (opp-e-(100*r)) /10000;
-    let e_h = document.createElement("td");
-    e_h.setAttribute("class","ps-0 text-end");
-    e_h.innerHTML = (e == 0 && r == 0 && b == 0 ? "" : String(e).padStart(2,'0'));
-    let r_h = document.createElement("td");
-    r_h.setAttribute("class","px-0 text-end");
-    r_h.innerHTML = (r == 0 && b == 0 ? "" : String(r).padStart(2,'0'));
-    let b_h = document.createElement("td");
-    b_h.setAttribute("class","pe-0 text-end");
-    b_h.innerHTML = (b == 0 ? "" : b);
-    h.push(b_h);
-    h.push(r_h);
-    h.push(e_h);
+    if(opp > 0){
+        let e = opp % 100;
+        let r = ((opp-e) % 10000)/100;
+        let b = (opp-e-(100*r)) /10000;
+        let e_h = document.createElement("td");
+        e_h.setAttribute("class","ps-0 text-end");
+        e_h.innerHTML = (e == 0 && r == 0 && b == 0 ? "" : String(e).padStart(2,'0'));
+        let r_h = document.createElement("td");
+        r_h.setAttribute("class","px-0 text-end");
+        r_h.innerHTML = (r == 0 && b == 0 ? "" : String(r).padStart(2,'0'));
+        let b_h = document.createElement("td");
+        b_h.setAttribute("class","pe-0 text-end");
+        b_h.innerHTML = (b == 0 ? "" : b);
+        h.push(b_h);
+        h.push(r_h);
+        h.push(e_h);
+    } else {
+        let x = document.createElement("td");
+        x.setAttribute("colspan","3");
+        h.push(x);
+    }
     return h
 }
 
