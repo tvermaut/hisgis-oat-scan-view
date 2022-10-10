@@ -167,6 +167,7 @@ function getArtikelHTML(a, aantal){
                 accolade.appendChild(inhoud);
                 naam_h.appendChild(accolade);
             } else {
+                naam_h.setAttribute("class","border-end");
                 naam_h.innerHTML = p.achternaam;
             }
             h.push(naam_h);
@@ -174,6 +175,7 @@ function getArtikelHTML(a, aantal){
             // voornaam
             let vnaam_h = document.createElement("td");
             vnaam_h.setAttribute("rowspan", aantal);
+            vnaam_h.setAttribute("class", "border-start border-end");
             if(p.titel){vnaam_h.innerHTML += p.titel + " ";}
             vnaam_h.innerHTML += p.voornaam;
             if(p.voorvoegsel){vnaam_h.innerHTML += ", " + p.voorvoegsel;}
@@ -182,12 +184,14 @@ function getArtikelHTML(a, aantal){
             // beroep
             let beroep_h = document.createElement("td");
             beroep_h.setAttribute("rowspan", aantal);
+            beroep_h.setAttribute("class", "border-start border-end");
             beroep_h.innerHTML = p.beroep;
             h.push(beroep_h);
 
             // woonplaats
             let woonplaats_h = document.createElement("td");
             woonplaats_h.setAttribute("rowspan", aantal);
+            woonplaats_h.setAttribute("class", "border-start border-end");
             woonplaats_h.innerHTML = p.woonplaats;
             h.push(woonplaats_h);
         } else if (a.rechtsPersonen[0].type == "VERWIJZING") {
