@@ -152,7 +152,7 @@ function getArtikelHTML(a, aantal){
 
     var anr = a.artikelnr;
     if(a.artikelnrtvg){anr += "/" + a.artikelnrtvg;}
-    anr = '<span class="badge artikelnr p-2 mx-2">' + anr + '</span>';
+    anr = '<span class="badge artikelnr py-1 px-2 mx-2">' + anr + '</span>';
 
     if(a.rechtsPersonen && a.rechtsPersonen.length == 1){
         if(a.rechtsPersonen[0].type == "PERSOON"){
@@ -173,7 +173,7 @@ function getArtikelHTML(a, aantal){
                 persoon_h.appendChild(accolade);
             } else {
                 persoon_h.setAttribute("class","border-end");
-                persoon_h.innerHTML = p.lbl();
+                persoon_h.innerHTML = anr + p.lbl();
             }
             h.push(persoon_h);
 
