@@ -204,12 +204,12 @@ class Persoon extends RPI {
 
     constructor(json){
         super();
-        this.achternaam = json.achternaam;
-        this.voornaam = json.voornaam;
-        this.voorvoegsel = json.voorvoegsel;
-        this.titel = json.titel;
-        this.beroep = json.beroep;
-        this.woonplaats = json.woonplaats;
+        this.achternaam = json.achternaam || '';
+        this.voornaam = json.voornaam || '';
+        this.voorvoegsel = json.voorvoegsel || '';
+        this.titel = json.titel || '';
+        this.beroep = json.beroep || '';
+        this.woonplaats = json.woonplaats || '';
         this.varianten = [];
     }
 
@@ -233,10 +233,10 @@ class Instantie extends RPI {
 
     constructor(json){
         super();
-        this.naam = json.naam;
-        this.plaats = json.plaats;
-        this.type = json.type;
-        this.gezindte = json.gezindte;
+        this.naam = json.naam || '';
+        this.plaats = json.plaats || '';
+        this.type = json.type || '';
+        this.gezindte = json.gezindte || '';
     }
 
     lbl(){
