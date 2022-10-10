@@ -158,7 +158,7 @@ function getArtikelHTML(a, aantal){
             persoon_h.setAttribute("rowspan", aantal);
             persoon_h.setAttribute("colspan", 4);
             if(aantal > 1){
-                persoon_h.setAttribute("class","container my-auto");
+                persoon_h.setAttribute("class","container border-end");
                 let accolade = document.createElement("div");
                 accolade.setAttribute("class", "accolade");
                 let inhoud = document.createElement("div");
@@ -202,7 +202,19 @@ function getArtikelHTML(a, aantal){
             x.setAttribute("colspan",4);
             x.setAttribute("class","border-end");
             let pv = new Verwijzing(a.rechtsPersonen[0].persoonsVerwijzing);
-            x.innerHTML = pv.lbl();
+            if(aantal > 1){
+                persoon_h.setAttribute("class","container border-end");
+                let accolade = document.createElement("div");
+                accolade.setAttribute("class", "accolade");
+                let inhoud = document.createElement("div");
+                inhoud.setAttribute("class", "content my-auto");
+
+                inhoud.innerHTML = pv.lbl();
+                accolade.appendChild(inhoud);
+                persoon_h.appendChild(accolade);
+            } else {
+                x.innerHTML = pv.lbl();
+            }
             h.push(x);
         } else if (a.rechtsPersonen[0].type == "INSTANTIE"){
             let x = document.createElement("td");
