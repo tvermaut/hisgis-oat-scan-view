@@ -203,6 +203,7 @@ class Persoon extends RPI {
     varianten; //@TODO nog verwerken
 
     constructor(json){
+        super();
         this.achternaam = json.achternaam;
         this.voornaam = json.voornaam;
         this.voorvoegsel = json.voorvoegsel;
