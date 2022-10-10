@@ -23,13 +23,16 @@ function verwerkScan(s){
         pnr.innerHTML = p.perceelnr;
         if(p.perceelnrtvg){pnr.innerHTML += "/" + p.perceelnrtvg;}
         pi.appendChild(pnr);
-        t.appendChild(pi);
+
 
         let aid = p.artikelLink.artikelnr;
         if(p.artikelLink.artikelnrtvg){aid += p.artikelLink.artikelnrtvg;}
         let a = artikelen[aid];
         let as = getArtikelHTML(a);
-        for(let ai of as){t.appendChild(ai);}
+        for(let ai of as){pi.appendChild(ai);}
+
+
+        t.appendChild(pi);
     }
     //console.log(secties);
     }
@@ -43,7 +46,7 @@ function getArtikelHTML(a){
 
             // naam
             let naam_h = document.createElement("td");
-            naam_h.innerHTML = p.naam;
+            naam_h.innerHTML = p.achternaam;
             h.push(naam_h);
 
             // voornaam
