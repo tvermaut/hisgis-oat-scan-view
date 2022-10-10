@@ -46,7 +46,7 @@ function verwerkScan(s){
 
         // huisnrs
         let huisnrs = document.createElement("td");
-        huisnrs.setAttribute("class","text-end");
+        huisnrs.setAttribute("class","text-center");
         var hnr = ""
         for(hi of p.huisnrs){
             hnr += (hnr.length > 0 ? ', ' : '');
@@ -73,6 +73,7 @@ function verwerkScan(s){
         for(let i of getOppervlakHTML(pts.k4)){pi.appendChild(i);}
         for(let i of getOppervlakHTML(pts.k5)){pi.appendChild(i);}
         let k_geb = document.createElement("td");
+        k_geb.setAttribute("class","text-center");
         k_geb.innerHTML = (pts.k_geb || '');
         pi.appendChild(k_geb);
         for(let i of getBedragHTML(pts.t1)){pi.appendChild(i);}
@@ -93,8 +94,7 @@ function verwerkScan(s){
 
         t.appendChild(pi);
     }
-    //console.log(secties);
-    }
+}
 
 
 function getOppervlakHTML(opp){
