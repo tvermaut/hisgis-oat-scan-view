@@ -62,6 +62,21 @@ function verwerkScan(s){
         pi.appendChild(samengeteld_oppervlak);
 
         // voorlopige klassering
+        let voorlopige_klassering = document.createElement("td");
+        pi.appendChild(voorlopige_klassering);
+
+        let pts = new PerceelTarieven(p.PerceelTarieven);
+        pi.appendChild(pts.k1);
+        pi.appendChild(pts.k2);
+        pi.appendChild(pts.k3);
+        pi.appendChild(pts.k4);
+        pi.appendChild(pts.k5);
+        pi.appendChild(pts.k_geb);
+        pi.appendChild(pts.t1);
+        pi.appendChild(pts.t2);
+        pi.appendChild(pts.t3);
+        pi.appendChild(pts.t4);
+        pi.appendChild(pts.t5);
 
         t.appendChild(pi);
     }
@@ -86,6 +101,21 @@ function getOppervlakHTML(opp){
     h.push(b_h);
     h.push(r_h);
     h.push(e_h);
+    return h
+}
+
+function getBedragHTML(b){
+    var h = [];
+    let c = b % 100;
+    let g = (b-c)/100;
+    let c_h = document.createElement("td");
+    c_h.setAttribute("class","ps-0 text-end");
+    c_h.innerHTML = (c == 0 ? '' : String(c).padStart(2,'0'));
+    let g_h = document.createElement("td");
+    g_h.setAttribute("class","pe-0 text-end");
+    g_h.innerHTML = g;
+    h.push(g_h);
+    h.push(c_h);
     return h
 }
 
@@ -254,5 +284,58 @@ class Instantie extends RPI {
         l += (l.length > 0 && this.plaats.length > 0) ? ' te ' : '';
         l += this.plaats || '';
         return l
+    }
+}
+
+class PerceelTarieven {
+    k1;
+    k2;
+    k3;
+    k4;
+    k5;
+    t1;
+    t2;
+    t3;
+    t4;
+    t5;
+    k_geb;
+    t_geb;
+    ts_ong;
+    ts_geb;
+
+    constructor(json){
+        for(x of json){
+            if(x.tarief.tariefsoort.type == "ONGEBOUWD"){
+                switch(x.tarief.klasse){
+                    case "1":
+                        this.k1 = getOppervlakHTML(x.oppervlak);
+                        this.t1 = getBedragHTML(x.tarief.tarief * x.oppervlak / 100);
+                        break;
+                    case "2":
+                        this.k2 = getOppervlakHTML(x.oppervlak);
+                        this.t2 = getBedragHTML(x.tarief.tarief * x.oppervlak / 100);
+                        break;
+                    case "3": 
+                        this.k3 = getOppervlakHTML(x.oppervlak);
+                        this.t3 = getBedragHTML(x.tarief.tarief * x.oppervlak / 100);
+                        break;
+                    case "4":
+                        this.k4 = getOppervlakHTML(x.oppervlak);
+                        this.t4 = getBedragHTML(x.tarief.tarief * x.oppervlak / 100);
+                        break;
+                    case "5":
+                        this.k5 = getOppervlakHTML(x.oppervlak);
+                        this.t5 = getBedragHTML(x.tarief.tarief * x.oppervlak / 100);
+                        break;
+                    default: console.error("klasse niet gekend voor ongebouwd: " + x.tarief.klasse)
+                }
+//getOppervlakHTML
+            } else if (x.tarief.tariefsoort.type == "GEBOUWD"){
+                this.k_geb = x.tarief.klasse;
+                this.t_geb = getBedragHTML(x.tarief.tarief);
+            } else {
+                console.error("ongekend tariefsoort-type: " + x.tarief.tariefsoort.type);
+            }
+        }
     }
 }
