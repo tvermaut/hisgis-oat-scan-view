@@ -277,7 +277,7 @@ class Verwijzing extends RPI {
         super();
         this.inRelatieTot = (json.hasOwnProperty("inRelatieTot") ? new Persoon(json.inRelatieTot) : null);
         this.persoon = (json.hasOwnProperty("persoon") ? new Persoon(json.persoon) : null);
-        this.verwijzing = json.verwijzing;
+        this.verwijzing = (json.verwijzing in d_verw ? dverw[json.verwijzing] : json_verwijzing);
     }
 
     lbl(){
@@ -347,6 +347,18 @@ class Instantie extends RPI {
         return l
     }
 }
+
+d_verw = [];
+d_verw['WEDUWE_VAN'] = 'weduwe van';
+d_verw['ERVEN_VAN'] = 'erven van';
+d_verw['ECHTGENOOT_VAN'] = 'echtgeno(o)t(e) van';
+d_verw['GESCHEIDEN_VAN'] = 'gescheiden van';
+d_verw['HUISVROUW_VAN'] = 'huisvrouw van';
+d_verw['VOOGD_VAN'] = 'voogd van';
+d_verw['IN_HUWELIJK_HEBBENDE'] = 'in huwelijk hebbende';
+d_verw['KINDEREN_VAN'] = 'kinderen van';
+d_verw['ERVEN_VAN_WEDUWE'] = 'erven en weduwe van';
+d_verw['BOEDEL_VAN'] = 'boedel van';
 
 class PerceelTarieven {
     k1;
