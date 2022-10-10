@@ -304,7 +304,7 @@ class PerceelTarieven {
     ts_geb;
 
     constructor(json){
-        for(x of json){
+        for(x in json){
             if(x.tarief.tariefsoort.type == "ONGEBOUWD"){
                 switch(x.tarief.klasse){
                     case "1":
