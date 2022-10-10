@@ -46,7 +46,13 @@ function verwerkScan(s){
 
         // huisnrs
         let huisnrs = document.createElement("td");
-        huisnrs.innerHTML = p.huisnrs.join(', ');
+        var hnr = ""
+        for(hi of p.huisnrs){
+            hnr += (hrn.length > 0 ? ', ' : '');
+            hnr += hi.wijk + (hi.wijk.length > 0 ? '-' : '');
+            hnr += hi.nr + (hi.nrtvg.length > 0 ? '/' + hi.nrtvg : '');
+        }
+        huisnrs.innerHTML = hnr;
         pi.appendChild(huisnrs);
 
         // oppervlakte
