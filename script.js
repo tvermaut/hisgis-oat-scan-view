@@ -313,28 +313,27 @@ class PerceelTarieven {
             if(x.tarief.tariefsoort.type == "ONGEBOUWD"){
                 switch(x.tarief.klasse){
                     case "1":
-                        this.k1 = getOppervlakHTML(x.oppervlak);
+                        this.k1 = x.oppervlak;
                         this.t1 = getBedragHTML(x.tarief.tarief * x.oppervlak / 100);
                         break;
                     case "2":
-                        this.k2 = getOppervlakHTML(x.oppervlak);
+                        this.k2 = x.oppervlak;
                         this.t2 = getBedragHTML(x.tarief.tarief * x.oppervlak / 100);
                         break;
                     case "3": 
-                        this.k3 = getOppervlakHTML(x.oppervlak);
+                        this.k3 = x.oppervlak;
                         this.t3 = getBedragHTML(x.tarief.tarief * x.oppervlak / 100);
                         break;
                     case "4":
-                        this.k4 = getOppervlakHTML(x.oppervlak);
+                        this.k4 = x.oppervlak;
                         this.t4 = getBedragHTML(x.tarief.tarief * x.oppervlak / 100);
                         break;
                     case "5":
-                        this.k5 = getOppervlakHTML(x.oppervlak);
+                        this.k5 = x.oppervlak;
                         this.t5 = getBedragHTML(x.tarief.tarief * x.oppervlak / 100);
                         break;
                     default: console.error("klasse niet gekend voor ongebouwd: " + x.tarief.klasse)
                 }
-//getOppervlakHTML
             } else if (x.tarief.tariefsoort.type == "GEBOUWD"){
                 this.k_geb = x.tarief.klasse;
                 this.t_geb = getBedragHTML(x.tarief.tarief);
