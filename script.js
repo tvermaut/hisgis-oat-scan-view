@@ -152,48 +152,49 @@ function getArtikelHTML(a, aantal){
 
     if(a.rechtsPersonen && a.rechtsPersonen.length == 1){
         if(a.rechtsPersonen[0].type == "PERSOON"){
-            let p = a.rechtsPersonen[0].persoon;
+            let p = new Persoon(a.rechtsPersonen[0].persoon);
 
-            // naam
-            let naam_h = document.createElement("td");
-            naam_h.setAttribute("rowspan", aantal);
+            let persoon_h = document.createElement("td");
+            persoon_h.setAttribute("rowspan", aantal);
+            persoon_h.setAttribute("colspan", 4);
             if(aantal > 1){
-                naam_h.setAttribute("class","container my-auto");
+                persoon_h.setAttribute("class","container my-auto");
                 let accolade = document.createElement("div");
                 accolade.setAttribute("class", "accolade");
                 let inhoud = document.createElement("div");
                 inhoud.setAttribute("class", "content my-auto");
-                inhoud.innerHTML = p.achternaam;
+
+                inhoud.innerHTML = p.lbl();
                 accolade.appendChild(inhoud);
-                naam_h.appendChild(accolade);
+                persoon_h.appendChild(accolade);
             } else {
-                naam_h.setAttribute("class","border-end");
-                naam_h.innerHTML = p.achternaam;
+                persoon_h.setAttribute("class","border-end");
+                persoon_h.innerHTML = p.lbl();
             }
-            h.push(naam_h);
+            h.push(persoon_h);
 
-            // voornaam
-            let vnaam_h = document.createElement("td");
-            vnaam_h.setAttribute("rowspan", aantal);
-            vnaam_h.setAttribute("class", "border-start border-end");
-            if(p.titel){vnaam_h.innerHTML += p.titel + " ";}
-            vnaam_h.innerHTML += p.voornaam;
-            if(p.voorvoegsel){vnaam_h.innerHTML += ", " + p.voorvoegsel;}
-            h.push(vnaam_h);
+            // // voornaam
+            // let vnaam_h = document.createElement("td");
+            // vnaam_h.setAttribute("rowspan", aantal);
+            // vnaam_h.setAttribute("class", "border-start border-end");
+            // if(p.titel){vnaam_h.innerHTML += p.titel + " ";}
+            // vnaam_h.innerHTML += p.voornaam;
+            // if(p.voorvoegsel){vnaam_h.innerHTML += ", " + p.voorvoegsel;}
+            // h.push(vnaam_h);
 
-            // beroep
-            let beroep_h = document.createElement("td");
-            beroep_h.setAttribute("rowspan", aantal);
-            beroep_h.setAttribute("class", "border-start border-end");
-            beroep_h.innerHTML = p.beroep;
-            h.push(beroep_h);
+            // // beroep
+            // let beroep_h = document.createElement("td");
+            // beroep_h.setAttribute("rowspan", aantal);
+            // beroep_h.setAttribute("class", "border-start border-end");
+            // beroep_h.innerHTML = p.beroep;
+            // h.push(beroep_h);
 
-            // woonplaats
-            let woonplaats_h = document.createElement("td");
-            woonplaats_h.setAttribute("rowspan", aantal);
-            woonplaats_h.setAttribute("class", "border-start border-end");
-            woonplaats_h.innerHTML = p.woonplaats;
-            h.push(woonplaats_h);
+            // // woonplaats
+            // let woonplaats_h = document.createElement("td");
+            // woonplaats_h.setAttribute("rowspan", aantal);
+            // woonplaats_h.setAttribute("class", "border-start border-end");
+            // woonplaats_h.innerHTML = p.woonplaats;
+            // h.push(woonplaats_h);
         } else if (a.rechtsPersonen[0].type == "VERWIJZING") {
             // geen PERSOON
             let x = document.createElement("td");
