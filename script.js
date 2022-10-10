@@ -45,7 +45,7 @@ function verwerkScan(s){
 
         // huisnrs
         let huisnrs = document.createElement("td");
-        soort.innerHTML = p.huisnrs.join(', ');
+        huisnrs.innerHTML = p.huisnrs.join(', ');
         pi.appendChild(huisnrs);
 
         // oppervlakte
