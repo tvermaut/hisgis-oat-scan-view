@@ -27,13 +27,15 @@ function verwerkScan(s){
 
         var aantal_a = 1;
         let huidig = parseInt(px);
-        var i = 1;
-        while(p_sort.length >= (huidig+i) && (p_sort[huidig]).artikelLink.artikelnr == p_sort[huidig+i].artikelLink.artikelnr){aantal_a++; i++}
-        let aid = p.artikelLink.artikelnr;
-        if(p.artikelLink.artikelnrtvg){aid += p.artikelLink.artikelnrtvg;}
-        let a = artikelen[aid];
-        let as = getArtikelHTML(a, aantal_a);
-        for(let ai of as){pi.appendChild(ai);}
+        if(huidig == 0 || p_sort[huidig-1].artikelLink.artikelnr != (p_sort[huidig]).artikelLink.artikelnr){
+            var i = 1;
+            while(p_sort.length >= (huidig+i) && (p_sort[huidig]).artikelLink.artikelnr == p_sort[huidig+i].artikelLink.artikelnr){aantal_a++; i++}
+            let aid = p.artikelLink.artikelnr;
+            if(p.artikelLink.artikelnrtvg){aid += p.artikelLink.artikelnrtvg;}
+            let a = artikelen[aid];
+            let as = getArtikelHTML(a, aantal_a);
+            for(let ai of as){pi.appendChild(ai);}
+        }
 
         // grondgebruik
         let soort = document.createElement("td");
@@ -79,9 +81,15 @@ function getArtikelHTML(a, aantal){
             h.push(woonplaats_h);
         } else {
             // geen PERSOON
+            let x = document.createElement("td");
+            x.setAttribute("collspan",4);
+            h.push(x);
         }
     } else if (a.rechtspersonen.length > 1){
         // meer dan 1 RP
+        let x = document.createElement("td");
+        x.setAttribute("collspan",4);
+        h.push(x);
     }
 
 
