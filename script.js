@@ -200,6 +200,7 @@ function getArtikelHTML(a, aantal){
             let x = document.createElement("td");
             x.setAttribute("rowspan", aantal);
             x.setAttribute("colspan",4);
+            x.setAttribute("class","border-end");
             let pv = new Verwijzing(a.rechtsPersonen[0].persoonsVerwijzing);
             x.innerHTML = pv.lbl();
             h.push(x);
@@ -207,6 +208,7 @@ function getArtikelHTML(a, aantal){
             let x = document.createElement("td");
             x.setAttribute("rowspan", aantal);
             x.setAttribute("colspan",4);
+            x.setAttribute("class","border-end");
             let instantie = new Instantie(a.rechtsPersonen[0].instantie);
             x.innerHTML = instantie.lbl();
             h.push(x);
