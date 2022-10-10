@@ -66,14 +66,14 @@ function verwerkScan(s){
         pi.appendChild(voorlopige_klassering);
 
         console.log("nu starten met perceelTarieven:");
-        console.log(p.PerceelTarieven);
-        var pts = new PerceelTarieven(p.PerceelTarieven);
+        console.log(p.perceelTarieven);
+        var pts = new PerceelTarieven(p.perceelTarieven);
         console.log(pts);
-        for(let i in pts.k1){pi.appendChild(i);}
-        for(let i in pts.k2){pi.appendChild(i);}
-        for(let i in pts.k3){pi.appendChild(i);}
-        for(let i in pts.k4){pi.appendChild(i);}
-        for(let i in pts.k5){pi.appendChild(i);}
+        for(let i of getOppervlakHTML(pts.k1)){pi.appendChild(i);}
+        // for(let i in pts.k2){pi.appendChild(i);}
+        // for(let i in pts.k3){pi.appendChild(i);}
+        // for(let i in pts.k4){pi.appendChild(i);}
+        // for(let i in pts.k5){pi.appendChild(i);}
         // pi.appendChild(pts.k2);
         // pi.appendChild(pts.k3);
         // pi.appendChild(pts.k4);
