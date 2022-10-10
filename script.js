@@ -35,7 +35,7 @@ function verwerkScan(s){
     }
 
 function getArtikelHTML(a){
-    var h = NodeList;
+    var h = [];
 
     if(a.rechtsPersonen.length == 1){
         if(a.rechtsPersonen[0].type == "PERSOON"){
@@ -44,24 +44,24 @@ function getArtikelHTML(a){
             // naam
             let naam_h = document.createElement("td");
             naam_h.innerHTML = p.naam;
-            h.appendChild(naam_h);
+            h.push(naam_h);
 
             // voornaam
             let vnaam_h = document.createElement("td");
             if(p.titel){vnaam_h.innerHTML += p.titel + " ";}
             vnaam_h.innerHTML += p.voornaam;
             if(p.voorvoegsel){vnaam_h.innerHTML += ", " + p.voorvoegsel;}
-            h.appendChild(vnaam_h);
+            h.push(vnaam_h);
 
             // beroep
             let beroep_h = document.createElement("td");
             beroep_h.innerHTML = p.beroep;
-            h.appendChild(beroep_h);
+            h.push(beroep_h);
 
             // woonplaats
             let woonplaats_h = document.createElement("td");
             woonplaats_h.innerHTML = p.woonplaats;
-            h.appendChild(woonplaats_h);
+            h.push(woonplaats_h);
         } else {
             // geen PERSOON
         }
