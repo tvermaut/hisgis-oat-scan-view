@@ -118,8 +118,8 @@ function getOppervlakHTML(opp){
 function getBedragHTML(b){
     var h = [];
     if(b > 0){
-        let c = round(b % 100);
-        let g = round((b-c)/100);
+        let c = Math.round(b % 100);
+        let g = Math.round((b-c)/100);
         let c_h = document.createElement("td");
         c_h.setAttribute("class","ps-0 text-end");
         c_h.innerHTML = (c == 0 ? '' : String(c).padStart(2,'0'));
