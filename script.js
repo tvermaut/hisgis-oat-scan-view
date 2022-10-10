@@ -46,6 +46,7 @@ function verwerkScan(s){
 
         // huisnrs
         let huisnrs = document.createElement("td");
+        huisnrs.setAttribute("class","text-end");
         var hnr = ""
         for(hi of p.huisnrs){
             hnr += (hnr.length > 0 ? ', ' : '');
@@ -65,10 +66,7 @@ function verwerkScan(s){
         let voorlopige_klassering = document.createElement("td");
         pi.appendChild(voorlopige_klassering);
 
-        console.log("nu starten met perceelTarieven:");
-        console.log(p.perceelTarieven);
         var pts = new PerceelTarieven(p.perceelTarieven);
-        console.log(pts);
         for(let i of getOppervlakHTML(pts.k1)){pi.appendChild(i);}
         for(let i of getOppervlakHTML(pts.k2)){pi.appendChild(i);}
         for(let i of getOppervlakHTML(pts.k3)){pi.appendChild(i);}
@@ -82,6 +80,16 @@ function verwerkScan(s){
         for(let i of getBedragHTML(pts.t3)){pi.appendChild(i);}
         for(let i of getBedragHTML(pts.t4)){pi.appendChild(i);}
         for(let i of getBedragHTML(pts.t5)){pi.appendChild(i);}
+
+        for(let i of getBedragHTML(p.belastbaar_inkomen + (p.aftrek || 0))){pi.appendChild(i);}
+        let bel_ink_samen = document.createElement("td");
+        bel_ink_samen.setAttribute("colspan",2);
+        pi.appendChild(bel_ink_samen);
+        
+        for(let i of getBedragHTML(p.aftrek || 0)){pi.appendChild(i);}
+
+        for(let i of getBedragHTML(p.belastbaar_inkomen         || 0)){pi.appendChild(i);}
+        for(let i of getBedragHTML(p.belastbaar_inkomen_gebouwd || 0)){pi.appendChild(i);}
 
         t.appendChild(pi);
     }
