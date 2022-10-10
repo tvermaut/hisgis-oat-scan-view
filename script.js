@@ -41,6 +41,7 @@ function verwerkScan(s){
 
         // grondgebruik
         let soort = document.createElement("td");
+        soort.setAttribute("class","text-end");
         soort.innerHTML = p.grondGebruik;
         pi.appendChild(soort);
 
