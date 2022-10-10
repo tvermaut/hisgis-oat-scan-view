@@ -92,8 +92,14 @@ function getArtikelHTML(a, aantal){
             // naam
             let naam_h = document.createElement("td");
             naam_h.setAttribute("rowspan", aantal);
-            if(aantal > 1){naam_h.setAttribute("class","border-start-info border-start border-3")}
-            naam_h.innerHTML = p.achternaam;
+            if(aantal > 1){naam_h.setAttribute("class","container")}
+            let accolade = document.createElement("div");
+            accolade.setAttribute("class", "accolade");
+            let inhoud = document.createElement("div");
+            inhoud.setAttribute("class", "content");
+            inhoud.innerHTML = p.achternaam;
+            accolade.appendChild(inhoud);
+            naam_h.appendChild(accolade);
             h.push(naam_h);
 
             // voornaam

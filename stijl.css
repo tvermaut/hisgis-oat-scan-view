@@ -28,3 +28,62 @@ th.uit{
 .xs{
     font-size: 0.6rem;
 }
+
+
+body {
+    --red: 0;
+    --green: 157;
+    --blue: 224;
+    --color-accent: rgb(var(--red), var(--green), var(--blue));
+    --color-accent-light: rgba(var(--red), var(--green), var(--blue), 0.25);
+    --color-accent-ultralight: rgba(var(--red), var(--green), var(--blue), 0.06);
+    
+    --color-white: #fff;
+    --color-dark: rgb(44, 63, 72);
+    --color-dark-light: rgba(44, 63, 72, 0.25);
+    --color-dark-ultralight: rgba(44, 63, 72, 0.06);
+  
+    --color-background: var(--color-white)
+  }
+  
+  .container {
+    height: 100vh;
+    padding: 2rem;
+  }
+  .content {
+    min-height: 8rem;
+    border-radius: 2px;
+    margin: 2rem 0;
+    padding: 1.5rem;
+  }
+  .accolade .content {
+    padding-left: 3rem;
+  }
+  .accolade {
+    position: relative;
+    background: inherit;
+  }
+  .accolade:before {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1rem;
+    height: 2rem;
+    background: inherit;
+    border-radius: 0 0 1.5rem 0;
+    border-right: 2px solid var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+  }
+  .accolade:after {
+    content:'';
+    position: absolute;
+    bottom: 0rem;
+    left: 0;
+    width: 1rem;
+    height: calc(100% - 2rem - 2px);
+    background: inherit;
+    border-radius: 0 1.5rem 0 0;
+    border-right: 2px solid var(--color-accent);
+    border-top: 2px solid var(--color-accent);
+  }
