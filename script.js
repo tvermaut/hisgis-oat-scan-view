@@ -290,6 +290,11 @@ class Verwijzing extends RPI {
     }
 }
 
+
+d_jrSr = [];
+d_jrSr['JR'] = 'Junior';
+d_jrSr['SR'] = 'Senior';
+
 class Persoon extends RPI {
     achternaam;
     voornaam;
@@ -305,6 +310,7 @@ class Persoon extends RPI {
         this.voornaam = json.voornaam || '';
         this.voorvoegsel = json.voorvoegsel || '';
         this.titel = json.titel || '';
+        this.jrSr = json.jrSr || '';
         this.beroep = json.beroep || '';
         this.woonplaats = json.woonplaats || '';
         this.varianten = [];
@@ -315,6 +321,7 @@ class Persoon extends RPI {
         l += ((this.voornaam.length > 0 && l.length > 0) ? ' ' : '' ) + this.voornaam;
         l += ((this.voorvoegsel.length > 0 && l.length > 0) ? ' ' : '' ) + this.voorvoegsel;
         l += ((this.achternaam.length > 0 && l.length > 0) ? ' ' : '' ) + this.achternaam;
+        l += (this.jrSr.length > 0 ? '<span class="badge jrSr p-1 mx-1">' + this.jrSr + '</span>' : '');
         if(this.beroep.length > 0 && this.woonplaats.length > 0){l += ' (<span class="badge beroep p-1">' + this.beroep + '</span> te <span class="badge plaats p-1">' + this.woonplaats + '</span>)';}
         else if (this.beroep.length > 0){l += ' (<span class="badge beroep p-1">' + this.beroep + '</span>)';}
         else if (this.woonplaats.length > 0){l += ' (<span class="badge plaats p-1">' + this.woonplaats + '</span>)';}
