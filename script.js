@@ -242,11 +242,11 @@ class Instantie extends RPI {
     lbl(){
         let l = this.gezindte || '';
         l += (l.length > 0 && this.type.length > 0) ? ' ' : '';
-        l += this.type;
+        l += this.type || '';
         l += (l.length > 0 && this.naam.length > 0) ? ' ' : '';
-        l += this.naam;
+        l += this.naam || '';
         l += (l.length > 0 && this.plaats.length > 0) ? ' te ' : '';
-        l += this.plaats;
+        l += this.plaats || '';
         return l
     }
 }
