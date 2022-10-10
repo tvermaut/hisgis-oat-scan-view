@@ -284,7 +284,7 @@ class Verwijzing extends RPI {
         let l = "";
         l += this.inRelatieTot ? this.inRelatieTot.lbl() : '';
         l.length > 0 ? ' ' : '';
-        l += "<span class='badge rounded-pill text-bg-info'>" + this.verwijzing + "</span>";
+        l += "<span class='verwijzing badge rounded-pill'>" + this.verwijzing + "</span>";
         l += this.persoon ? ' ' + this.persoon.lbl() : '';
         return l
     }
