@@ -2,7 +2,7 @@ const q = window.location.search;
 if(q.length>1){
     fetch('https://oat.hisgis.nl/oat-ws/rest/percelen/oat/' + q.substring(1))
         .then((response) => response.json())
-        .then((data) => verwerkScans(data));
+        .then((data) => verwerkScan(data));
 }
 
 function verwerkScan(s){
