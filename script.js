@@ -26,12 +26,9 @@ function verwerkScan(s){
         pi.appendChild(pnr);
 
         var aantal_a = 1;
-        console.log("test: ");
-        console.log(px);
-        console.log(p_sort);
-        console.log((p_sort[px]));
-        console.log((px+1));
-        while(p_sort.length >= (px+1) && (p_sort[px]).artikelLink.artikelnr == p_sort[px+1].artikelLink.artikelnr){aantal_a++;}
+        let huidig = parseInt(px);
+        let volgend = huidig + 1;
+        while(p_sort[huidig] && (p_sort[huidig]).artikelLink.artikelnr == p_sort[volgend].artikelLink.artikelnr){aantal_a++;}
         let aid = p.artikelLink.artikelnr;
         if(p.artikelLink.artikelnrtvg){aid += p.artikelLink.artikelnrtvg;}
         let a = artikelen[aid];
