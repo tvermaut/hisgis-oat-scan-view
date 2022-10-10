@@ -23,6 +23,7 @@ function verwerkScan(s){
         let pnr = document.createElement("td");
         pnr.innerHTML = p.perceelnr;
         if(p.perceelnrtvg){pnr.innerHTML += "/" + p.perceelnrtvg;}
+        pnr.setAttribute("class","text-end");
         pi.appendChild(pnr);
 
         var aantal_a = 1;
@@ -67,13 +68,13 @@ function getOppervlakHTML(opp){
     let r = ((opp-e) % 10000)/100;
     let b = (opp-e-(100*r)) /10000;
     let e_h = document.createElement("td");
-    e_h.setAttribute("class","pl-0 text-right");
+    e_h.setAttribute("class","pl-0 text-end");
     e_h.innerHTML = (e == 0 && r == 0 && b == 0 ? "" : String(e).padStart(2,'0'));
     let r_h = document.createElement("td");
-    r_h.setAttribute("class","px-0 text-right");
+    r_h.setAttribute("class","px-0 text-end");
     r_h.innerHTML = (r == 0 && b == 0 ? "" : String(r).padStart(2,'0'));
     let b_h = document.createElement("td");
-    b_h.setAttribute("class","pr-0 text-right");
+    b_h.setAttribute("class","pr-0 text-end");
     b_h.innerHTML = (b == 0 ? "" : b);
     h.push(b_h);
     h.push(r_h);
@@ -133,6 +134,7 @@ function getArtikelHTML(a, aantal){
     let anr = a.artikelnr;
     if(a.artikelnrtvg){anr += "/" + a.artikelnrtvg;}
     anr_html.innerHTML = anr;
+    anr_html.setAttribute("class","text-end");
     h.push(anr_html);
     return h
 }
