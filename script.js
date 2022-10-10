@@ -283,9 +283,9 @@ class Verwijzing extends RPI {
     lbl(){
         let l = "";
         l += this.inRelatieTot ? this.inRelatieTot.lbl() : '';
-        l.length > 0 ? ' ' : '';
-        l += "<span class='verwijzing badge rounded-pill'>" + this.verwijzing + "</span>";
-        l += this.persoon ? ' ' + this.persoon.lbl() : '';
+        // l.length > 0 ? ' ' : '';
+        l += "<span class='verwijzing badge rounded-pill mx-2'>" + this.verwijzing + "</span>";
+        l += this.persoon ? this.persoon.lbl() : '';
         return l
     }
 }
