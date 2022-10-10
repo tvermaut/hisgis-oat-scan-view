@@ -48,7 +48,7 @@ function verwerkScan(s){
         let huisnrs = document.createElement("td");
         var hnr = ""
         for(hi of p.huisnrs){
-            hnr += (hrn.length > 0 ? ', ' : '');
+            hnr += (hnr.length > 0 ? ', ' : '');
             hnr += hi.wijk + (hi.wijk.length > 0 ? '-' : '');
             hnr += hi.nr + (hi.nrtvg.length > 0 ? '/' + hi.nrtvg : '');
         }
