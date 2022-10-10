@@ -232,6 +232,7 @@ class Instantie extends RPI {
     gezindte;
 
     constructor(json){
+        super();
         this.naam = json.naam;
         this.plaats = json.plaats;
         this.type = json.type;
