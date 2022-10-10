@@ -126,11 +126,19 @@ function getArtikelHTML(a, aantal){
             woonplaats_h.setAttribute("rowspan", aantal);
             woonplaats_h.innerHTML = p.woonplaats;
             h.push(woonplaats_h);
-        } else {
+        } else if (a.rechtsPersonen[0].type == "VERWIJZING") {
             // geen PERSOON
             let x = document.createElement("td");
             x.setAttribute("colspan",4);
             h.push(x);
+        } else if (a.rechtsPersonen[0].type == "INSTANTIE"){
+            let x = document.createElement("td");
+            x.setAttribute("colspan",4);
+            let instantie = new Instantie(a.rechtsPersonen[0]);
+            x.innerHTML = instantie.lbl();
+            h.push(x);
+        } else {
+            console.error("onherkend type: " + a.rechtsPersonen[0].type);
         }
     } else if (a.rechtspersonen.length > 1){
         // meer dan 1 RP
@@ -151,8 +159,92 @@ function getArtikelHTML(a, aantal){
     return h
 }
 
+class Artikel {
+    nr;
+    tvg;
+    cs;
+    reeks;
+    rechtsPersonen;
 
-// function getPersoonHTML(p){
+    constructor(json){
+        this.nr = json.artikelnr;
+        this.tvg = json.artikelnrtvg || '';
+        this.cs = json.consorten;
+        this.reeks = json.reeks;
+        this.rechtsPersonen = []
+    }
 
-//     return h
-// }
+    lbl(){return this.nr + (this.tvg ? '/'+this.tvg : '')}
+}
+
+class RechtsPersoon {
+    rpi;
+    rol;
+    type;
+
+    constructor(json){
+        this.rol = json.rol;
+        this.type = json.type;
+    }
+}
+
+class RPI {
+    // abstract
+    lbl(){}
+}
+
+class Persoon extends RPI {
+    achternaam;
+    voornaam;
+    voorvoegsel;
+    titel;
+    beroep;
+    woonplaats;
+    varianten; //@TODO nog verwerken
+
+    constructor(json){
+        this.achternaam = json.achternaam;
+        this.voornaam = json.voornaam;
+        this.voorvoegsel = json.voorvoegsel;
+        this.titel = json.titel;
+        this.beroep = json.beroep;
+        this.woonplaats = json.woonplaats;
+        this.varianten = [];
+    }
+
+    lbl(){
+        let l = this.titel;
+        l += ((this.voornaam.length > 0 && l.length > 0) ? ' ' : '' ) + this.voornaam;
+        l += ((this.voorvoegsel.length > 0 && l.length > 0) ? ' ' : '' ) + this.voorvoegsel;
+        l += ((this.achternaam.length > 0 && l.length > 0) ? ' ' : '' ) + this.achternaam;
+        if(this.beroep.length > 0 && this.woonplaats.length > 0){l += ' (' + this.beroep + ' te ' + this.woonplaats + ')';}
+        else if (this.beroep.length > 0){l += ' (' + this.beroep + ')';}
+        else if (this.woonplaats.length > 0){l += ' (' + this.woonplaats + ')';}
+        return l
+    }
+}
+
+class Instantie extends RPI {
+    naam;
+    plaats;
+    type;
+    gezindte;
+
+    constructor(json){
+        this.naam = json.naam;
+        this.plaats = json.plaats;
+        this.type = json.type;
+        this.gezindte = json.gezindte;
+    }
+
+    lbl(){
+        let l = this.gezindte;
+        l += (l.length > 0 && this.type.length > 0) ? ' ' : '';
+        l += this.type;
+        l += (l.length > 0 && this.naam.length > 0) ? ' ' : '';
+        l += this.naam;
+        l += (l.length > 0 && this.plaats.length > 0) ? ' te ' : '';
+        l += this.plaats;
+        return l
+    }
+}
