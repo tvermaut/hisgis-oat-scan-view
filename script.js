@@ -66,6 +66,7 @@ function verwerkScan(s){
         pi.appendChild(voorlopige_klassering);
 
         var pts = new PerceelTarieven(p.PerceelTarieven);
+        console.log(pts);
         for(let i in pts.k1){pi.appendChild(i);}
         for(let i in pts.k2){pi.appendChild(i);}
         for(let i in pts.k3){pi.appendChild(i);}
