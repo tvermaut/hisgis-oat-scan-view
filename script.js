@@ -29,7 +29,7 @@ function verwerkScan(s){
         console.log("test: ");
         console.log(px);
         console.log(p_sort[px]);
-        while(p_sort[px].artikelLink.artikelnr == p_sort[px++].artikelLink.artikelnr){aantal_a++;}
+        while(p_sort[px++] && p_sort[px].artikelLink.artikelnr == p_sort[px++].artikelLink.artikelnr){aantal_a++;}
         let aid = p.artikelLink.artikelnr;
         if(p.artikelLink.artikelnrtvg){aid += p.artikelLink.artikelnrtvg;}
         let a = artikelen[aid];
