@@ -7,6 +7,7 @@ if(q.length>1){
 
 function verwerkScan(s){
     console.log(s);
+    var t = document.getElementById('tbl_percelen');
     var artikelen = [];
     var percelen = [];
     //console.log(scans);
@@ -22,7 +23,12 @@ function verwerkScan(s){
         pnr.innerHTML = p.perceelnr;
         if(p.perceelnrtvg){pnr.innerHTML += "/" + p.perceelnrtvg;}
         pi.appendChild(pnr);
-        document.getElementById('tbl_percelen').appendChild(pi);
+        t.appendChild(pi);
+
+        let aid = p.artikelLink.artikelnr;
+        if(p.artikelLink.artikelnrtvg){aid += p.artikelLink.artikelnrtvg;}
+        let a = artikelen[aid];
+        t.appendChild(getArtikelHTML(a));
     }
     //console.log(secties);
     }
