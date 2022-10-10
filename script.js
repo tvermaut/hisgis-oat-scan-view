@@ -44,24 +44,24 @@ function getArtikelHTML(a){
             // naam
             let naam_h = document.createElement("td");
             naam_h.innerHTML = p.naam;
-            h.push(naam_h);
+            h.appendChild(naam_h);
 
             // voornaam
             let vnaam_h = document.createElement("td");
             if(p.titel){vnaam_h.innerHTML += p.titel + " ";}
             vnaam_h.innerHTML += p.voornaam;
             if(p.voorvoegsel){vnaam_h.innerHTML += ", " + p.voorvoegsel;}
-            h.push(vnaam_h);
+            h.appendChild(vnaam_h);
 
             // beroep
             let beroep_h = document.createElement("td");
             beroep_h.innerHTML = p.beroep;
-            h.push(beroep_h);
+            h.appendChild(beroep_h);
 
             // woonplaats
             let woonplaats_h = document.createElement("td");
             woonplaats_h.innerHTML = p.woonplaats;
-            h.push(woonplaats_h);
+            h.appendChild(woonplaats_h);
         } else {
             // geen PERSOON
         }
