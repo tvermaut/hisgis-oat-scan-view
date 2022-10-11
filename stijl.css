@@ -88,14 +88,6 @@ th.uit{
     font-family: 'Courier New', Courier, monospace;
 }
 
-.subk_s{
-    border-left: 1px dotted;
-}
-
-.subk_e{
-    border-right: 1px dotted;
-}
-
 body {
     --red: 0;
     --green: 157;

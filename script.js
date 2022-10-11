@@ -116,7 +116,7 @@ function getOppervlakHTML(opp){
         e_h.setAttribute("class","ps-0 text-start border-end mono");
         e_h.innerHTML = (e == 0 && r == 0 && b == 0 ? "" : String(e).padStart(2,'0'));
         let r_h = document.createElement("td");
-        r_h.setAttribute("class","px-0 text-center mono subk_s subk_e");
+        r_h.setAttribute("class","px-0 text-center mono");
         r_h.innerHTML = (r == 0 && b == 0 ? "" : String(r).padStart(2,'0'));
         let b_h = document.createElement("td");
         b_h.setAttribute("class","pe-0 text-end border-start mono");
@@ -139,11 +139,11 @@ function getBedragHTML(b){
         let c = Math.round(b % 100);
         let g = Math.round((b-c)/100);
         let c_h = document.createElement("td");
-        c_h.setAttribute("class","ps-0 text-start border-end mono subk_s");
+        c_h.setAttribute("class","ps-0 text-start border-end mono");
         c_h.innerHTML = (c == 0 ? '' : String(c).padStart(2,'0'));
         let g_h = document.createElement("td");
         g_h.setAttribute("class","pe-0 text-end border-start mono");
-        g_h.innerHTML = g;
+        g_h.innerHTML = (g == 0 ? '' : g);
         h.push(g_h);
         h.push(c_h);
     } else {
