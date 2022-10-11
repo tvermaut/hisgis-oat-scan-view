@@ -108,6 +108,9 @@ body {
 #tbl_percelen > tbody > tr > td {
     height:inherit;
     padding:1px;
+    align-items: center;
+    align-content: center;
+    vertical-align:middle;
 }
 
 .plinks{
