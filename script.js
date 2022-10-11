@@ -121,7 +121,7 @@ function getOppervlakHTML(opp){
         r_h.setAttribute("class","kr mono");
         r_h.innerHTML = (r == 0 && b == 0 ? "" : ( b == 0 ? r : String(r).padStart(2,'0')));
         let b_h = document.createElement("td");
-        b_h.setAttribute("class","ke mono");
+        b_h.setAttribute("class","kb mono");
         b_h.innerHTML = (b == 0 ? "" : b);
         h.push(b_h);
         h.push(r_h);
