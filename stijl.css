@@ -67,7 +67,12 @@ th.uit{
     color: black;    
 }
 
-
+.huisnr{
+    background-color: rgb(50,50,137) !important;
+    font-weight: bold;
+    font-size: normal;
+    color: white;    
+}
 
 
 body {

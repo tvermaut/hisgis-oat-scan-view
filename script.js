@@ -51,8 +51,8 @@ function verwerkScan(s){
         var hnr = ""
         for(hi of p.huisnrs){
             hnr += (hnr.length > 0 ? ', ' : '');
-            hnr += hi.wijk + (hi.wijk.length > 0 ? '-' : '');
-            hnr += hi.nr + (hi.nrtvg.length > 0 ? '/' + hi.nrtvg : '');
+            hnr += '<span class="huisnr badge p-1 m-1">' + hi.wijk + (hi.wijk.length > 0 ? '-' : '');
+            hnr += hi.nr + (hi.nrtvg.length > 0 ? '/' + hi.nrtvg : '') + '</span>';
         }
         huisnrs.innerHTML = hnr;
         pi.appendChild(huisnrs);
