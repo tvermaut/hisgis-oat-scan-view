@@ -105,7 +105,7 @@ body {
     --color-background: var(--color-white)
   }
   
-td {
+#tbl_percelen > tbody > tr > td {
     height:inherit;
     padding:1px;
 }
