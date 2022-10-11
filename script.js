@@ -117,7 +117,7 @@ function getOppervlakHTML(opp){
         e_h.innerHTML = (e == 0 && r == 0 && b == 0 ? "" : String(e).padStart(2,'0'));
         let r_h = document.createElement("td");
         r_h.setAttribute("class","px-0 text-center mono");
-        r_h.innerHTML = (r == 0 && b == 0 ? "" : String(r).padStart(2,'0'));
+        r_h.innerHTML = (r == 0 && b == 0 ? "" : ( b == 0 ? r : String(r).padStart(2,'0')));
         let b_h = document.createElement("td");
         b_h.setAttribute("class","pe-0 text-end border-start mono");
         b_h.innerHTML = (b == 0 ? "" : b);
