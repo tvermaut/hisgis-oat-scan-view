@@ -163,7 +163,7 @@ function getArtikelHTML(a, aantal){
 
     var anr = a.artikelnr;
     if(a.artikelnrtvg){anr += "/" + a.artikelnrtvg;}
-    anr = '<span class="badge artikelnr py-1 px-2">' + anr + '</span>';
+    anr = '<span class="badge artikelnr py-1 px-2 me-1">' + anr + '</span>';
 
     if(a.rechtsPersonen && a.rechtsPersonen.length == 1){
         if(a.rechtsPersonen[0].type == "PERSOON"){
