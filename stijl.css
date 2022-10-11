@@ -107,6 +107,7 @@ body {
   
 td {
     height:inherit;
+    padding:1px;
 }
 
 .plinks{
