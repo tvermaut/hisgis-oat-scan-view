@@ -21,6 +21,7 @@ function verwerkScan(s){
         let p = p_sort[px];
         let pi = document.createElement("tr");
         pi.setAttribute("style","height: 1px;");
+        pi.setAttribute("class","row");
         let pnr = document.createElement("td");
         pnr.innerHTML = p.perceelnr;
         if(p.perceelnrtvg){pnr.innerHTML += "/" + p.perceelnrtvg;}
