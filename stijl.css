@@ -79,6 +79,11 @@ th.uit{
     color: #aa0000;
 }
 
+.ongebouwde_klasse{
+    border: 1px solid #00aa00;
+    color: #00aa00;
+}
+
 body {
     --red: 0;
     --green: 157;

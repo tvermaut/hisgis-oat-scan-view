@@ -63,11 +63,18 @@ function verwerkScan(s){
         samengeteld_oppervlak.setAttribute("colspan",3);
         pi.appendChild(samengeteld_oppervlak);
 
+        var pts = new PerceelTarieven(p.perceelTarieven);
         // voorlopige klassering
         let voorlopige_klassering = document.createElement("td");
+        var voorl = ''
+        if(pts.k1 > 0){voorl += '<span class="ongebouwde_klasse badge p-1 m-1">1</span>'}
+        if(pts.k2 > 0){voorl += '<span class="ongebouwde_klasse badge p-1 m-1">2</span>'}
+        if(pts.k3 > 0){voorl += '<span class="ongebouwde_klasse badge p-1 m-1">3</span>'}
+        if(pts.k4 > 0){voorl += '<span class="ongebouwde_klasse badge p-1 m-1">4</span>'}
+        if(pts.k5 > 0){voorl += '<span class="ongebouwde_klasse badge p-1 m-1">5</span>'}
+        voorlopige_klassering.innerHTML = voorl;
         pi.appendChild(voorlopige_klassering);
 
-        var pts = new PerceelTarieven(p.perceelTarieven);
         for(let i of getOppervlakHTML(pts.k1)){pi.appendChild(i);}
         for(let i of getOppervlakHTML(pts.k2)){pi.appendChild(i);}
         for(let i of getOppervlakHTML(pts.k3)){pi.appendChild(i);}
