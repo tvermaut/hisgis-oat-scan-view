@@ -75,7 +75,7 @@ th.uit{
 }
 
 .gebouwde_klasse{
-    border-color: #aa0000;
+    border: 1px solid #aa0000;
     color: #aa0000;
 }
 
