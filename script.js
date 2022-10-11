@@ -142,7 +142,7 @@ function getBedragHTML(b){
         c_h.setAttribute("class","ps-0 text-start border-end mono");
         c_h.innerHTML = (c == 0 ? '' : String(c).padStart(2,'0'));
         let g_h = document.createElement("td");
-        g_h.setAttribute("class","pe-0 text-end border-start");
+        g_h.setAttribute("class","pe-0 text-end border-start mono");
         g_h.innerHTML = g;
         h.push(g_h);
         h.push(c_h);
