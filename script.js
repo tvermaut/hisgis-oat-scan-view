@@ -25,7 +25,7 @@ function verwerkScan(s){
         let pnr = document.createElement("td");
         pnr.innerHTML = p.perceelnr;
         if(p.perceelnrtvg){pnr.innerHTML += "/" + p.perceelnrtvg;}
-        pnr.setAttribute("class","pe-1 text-end");
+        pnr.setAttribute("class","col pe-1 text-end");
         pi.appendChild(pnr);
 
         var aantal_a = 1;
@@ -42,13 +42,13 @@ function verwerkScan(s){
 
         // grondgebruik
         let soort = document.createElement("td");
-        soort.setAttribute("class","text-end");
+        soort.setAttribute("class","col text-end");
         soort.innerHTML = p.grondGebruik;
         pi.appendChild(soort);
 
         // huisnrs
         let huisnrs = document.createElement("td");
-        huisnrs.setAttribute("class","text-center");
+        huisnrs.setAttribute("class","col text-center");
         var hnr = ""
         for(hi of p.huisnrs){
             hnr += (hnr.length > 0 ? ', ' : '');
@@ -62,12 +62,13 @@ function verwerkScan(s){
         for(let oi of getOppervlakHTML(p.oppervlak)){pi.appendChild(oi);}
         let samengeteld_oppervlak = document.createElement("td");
         samengeteld_oppervlak.setAttribute("colspan",3);
+        samengeteld_oppervlak.setAttribute("class","col");
         pi.appendChild(samengeteld_oppervlak);
 
         var pts = new PerceelTarieven(p.perceelTarieven);
         // voorlopige klassering
         let voorlopige_klassering = document.createElement("td");
-        voorlopige_klassering.setAttribute("class","text-center");
+        voorlopige_klassering.setAttribute("class","col text-center");
         var voorl = ''
         if(pts.k1 > 0){voorl += '<span class="ongebouwde_klasse badge p-1 m-1">1</span>'}
         if(pts.k2 > 0){voorl += '<span class="ongebouwde_klasse badge p-1 m-1">2</span>'}
@@ -83,7 +84,7 @@ function verwerkScan(s){
         for(let i of getOppervlakHTML(pts.k4)){pi.appendChild(i);}
         for(let i of getOppervlakHTML(pts.k5)){pi.appendChild(i);}
         let k_geb = document.createElement("td");
-        k_geb.setAttribute("class","text-center");
+        k_geb.setAttribute("class","col text-center");
         k_geb.innerHTML = pts.k_geb ? '<span class="gebouwde_klasse badge p-1 m-1">' + pts.k_geb + '</span>' : '';
         pi.appendChild(k_geb);
         for(let i of getBedragHTML(pts.t1)){pi.appendChild(i);}
@@ -94,6 +95,7 @@ function verwerkScan(s){
 
         for(let i of getBedragHTML(p.belastbaar_inkomen + (p.aftrek || 0))){pi.appendChild(i);}
         let bel_ink_samen = document.createElement("td");
+        bel_ink_samen.setAttribute("class","col");
         bel_ink_samen.setAttribute("colspan",2);
         pi.appendChild(bel_ink_samen);
         
@@ -114,13 +116,13 @@ function getOppervlakHTML(opp){
         let r = ((opp-e) % 10000)/100;
         let b = (opp-e-(100*r)) /10000;
         let e_h = document.createElement("td");
-        e_h.setAttribute("class","ps-0 text-start border-end mono");
+        e_h.setAttribute("class","col ps-0 text-start border-end mono");
         e_h.innerHTML = (e == 0 && r == 0 && b == 0 ? "" : String(e).padStart(2,'0'));
         let r_h = document.createElement("td");
-        r_h.setAttribute("class","px-0 text-center mono");
+        r_h.setAttribute("class","col px-0 text-center mono");
         r_h.innerHTML = (r == 0 && b == 0 ? "" : ( b == 0 ? r : String(r).padStart(2,'0')));
         let b_h = document.createElement("td");
-        b_h.setAttribute("class","pe-0 text-end border-start mono");
+        b_h.setAttribute("class","col pe-0 text-end border-start mono");
         b_h.innerHTML = (b == 0 ? "" : b);
         h.push(b_h);
         h.push(r_h);
@@ -128,7 +130,7 @@ function getOppervlakHTML(opp){
     } else {
         let x = document.createElement("td");
         x.setAttribute("colspan","3");
-        x.setAttribute("class","border")
+        x.setAttribute("class","col border")
         h.push(x);
     }
     return h
@@ -140,16 +142,16 @@ function getBedragHTML(b){
         let c = Math.round(b % 100);
         let g = Math.round((b-c)/100);
         let c_h = document.createElement("td");
-        c_h.setAttribute("class","ps-0 text-start border-end mono");
+        c_h.setAttribute("class","col ps-0 text-start border-end mono");
         c_h.innerHTML = (c == 0 ? '' : String(c).padStart(2,'0'));
         let g_h = document.createElement("td");
-        g_h.setAttribute("class","pe-0 text-end border-start mono");
+        g_h.setAttribute("class","col pe-0 text-end border-start mono");
         g_h.innerHTML = (g == 0 ? '' : g);
         h.push(g_h);
         h.push(c_h);
     } else {
         let x = document.createElement("td");
-        x.setAttribute("class","border")
+        x.setAttribute("class","col border")
         x.setAttribute("colspan","2");
         h.push(x);
     }
@@ -171,7 +173,7 @@ function getArtikelHTML(a, aantal){
             persoon_h.setAttribute("rowspan", aantal);
             persoon_h.setAttribute("colspan", 5);
             if(aantal > 1){
-                persoon_h.setAttribute("class","container border-end");
+                persoon_h.setAttribute("class","col container border-end");
                 let accolade = document.createElement("div");
                 accolade.setAttribute("class", "accolade");
                 let inhoud = document.createElement("div");
@@ -181,7 +183,7 @@ function getArtikelHTML(a, aantal){
                 accolade.appendChild(inhoud);
                 persoon_h.appendChild(accolade);
             } else {
-                persoon_h.setAttribute("class","border-end plinks");
+                persoon_h.setAttribute("class","col border-end plinks");
                 persoon_h.innerHTML = anr + p.lbl();
             }
             h.push(persoon_h);
@@ -215,7 +217,7 @@ function getArtikelHTML(a, aantal){
             x.setAttribute("colspan",5);
             let pv = new Verwijzing(a.rechtsPersonen[0].persoonsVerwijzing);
             if(aantal > 1){
-                x.setAttribute("class","container border-end");
+                x.setAttribute("class","col container border-end");
                 let accolade = document.createElement("div");
                 accolade.setAttribute("class", "accolade");
                 let inhoud = document.createElement("div");
@@ -225,7 +227,7 @@ function getArtikelHTML(a, aantal){
                 accolade.appendChild(inhoud);
                 x.appendChild(accolade);
             } else {
-                x.setAttribute("class","border-end plinks");
+                x.setAttribute("class","col border-end plinks");
                 x.innerHTML = anr + pv.lbl();
             }
             h.push(x);
@@ -235,7 +237,7 @@ function getArtikelHTML(a, aantal){
             x.setAttribute("colspan",5);
             let instantie = new Instantie(a.rechtsPersonen[0].instantie);
             if(aantal > 1){
-                x.setAttribute("class","container border-end");
+                x.setAttribute("class","col container border-end");
                 let accolade = document.createElement("div");
                 accolade.setAttribute("class", "accolade");
                 let inhoud = document.createElement("div");
@@ -245,7 +247,7 @@ function getArtikelHTML(a, aantal){
                 accolade.appendChild(inhoud);
                 x.appendChild(accolade);
             } else {
-                x.setAttribute("class","border-end plinks");
+                x.setAttribute("class","col border-end plinks");
                 x.innerHTML = anr + instantie.lbl();
             }
             h.push(x);
@@ -255,6 +257,7 @@ function getArtikelHTML(a, aantal){
     } else if (a.rechtsPersonen && a.rechtsPersonen.length > 1){
         // meer dan 1 RP
         let x = document.createElement("td");
+        x.setAttribute("class","col");
         x.setAttribute("rowspan", aantal);
         x.setAttribute("colspan",5);
         h.push(x);
