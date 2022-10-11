@@ -84,6 +84,10 @@ th.uit{
     color: #00aa00;
 }
 
+.mono{
+    font-family: 'Courier New', Courier, monospace;
+}
+
 body {
     --red: 0;
     --green: 157;
