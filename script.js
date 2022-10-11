@@ -66,6 +66,7 @@ function verwerkScan(s){
         var pts = new PerceelTarieven(p.perceelTarieven);
         // voorlopige klassering
         let voorlopige_klassering = document.createElement("td");
+        voorlopige_klassering.setAttribute("class","text-center");
         var voorl = ''
         if(pts.k1 > 0){voorl += '<span class="ongebouwde_klasse badge p-1 m-1">1</span>'}
         if(pts.k2 > 0){voorl += '<span class="ongebouwde_klasse badge p-1 m-1">2</span>'}
