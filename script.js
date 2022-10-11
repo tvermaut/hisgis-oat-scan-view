@@ -134,11 +134,12 @@ function getOppervlakHTML(opp){
     return h
 }
 
-function getBedragHTML(b){
+function getBedragHTML(bedrag){
     var h = [];
     if(b > 0){
-        let c = Math.round(b % 100);
-        let g = Math.round((b-c)/100);
+        let b = Math.round(bedrag);
+        let c = b % 100;
+        let g = (b-c)/100;
         let c_h = document.createElement("td");
         c_h.setAttribute("class","ps-0 text-start border-start-0 mono");
         c_h.innerHTML = (c == 0 ? '' : String(c).padStart(2,'0'));
