@@ -25,7 +25,7 @@ function verwerkScan(s){
         let pnr = document.createElement("td");
         pnr.innerHTML = p.perceelnr;
         if(p.perceelnrtvg){pnr.innerHTML += "/" + p.perceelnrtvg;}
-        pnr.setAttribute("class","pe-1 text-end");
+        pnr.setAttribute("class","pe-1 text-end boerder-end-0");
         pi.appendChild(pnr);
 
         var aantal_a = 1;
@@ -173,7 +173,7 @@ function getArtikelHTML(a, aantal){
             persoon_h.setAttribute("rowspan", aantal);
             persoon_h.setAttribute("colspan", 5);
             if(aantal > 1){
-                persoon_h.setAttribute("class","container border-end");
+                persoon_h.setAttribute("class","container boerder-start-0 border-end");
                 let accolade = document.createElement("div");
                 accolade.setAttribute("class", "accolade");
                 let inhoud = document.createElement("div");
@@ -183,7 +183,7 @@ function getArtikelHTML(a, aantal){
                 accolade.appendChild(inhoud);
                 persoon_h.appendChild(accolade);
             } else {
-                persoon_h.setAttribute("class","border-end plinks");
+                persoon_h.setAttribute("class","border-start-0 border-end plinks");
                 persoon_h.innerHTML = anr + p.lbl();
             }
             h.push(persoon_h);
