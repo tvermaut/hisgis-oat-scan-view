@@ -7,7 +7,7 @@ if(q.length>1){
 
 function verwerkScan(s){
     // console.log(s);
-    var t = document.getElementById('tbl_percelen');
+    var t = document.getElementById('tbl_percelen_body');
     var artikelen = [];
     var percelen = [];
     //console.log(scans);
