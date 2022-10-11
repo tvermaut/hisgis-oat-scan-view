@@ -8,7 +8,6 @@ if(q.length>1){
 function verwerkScan(s){
     document.getElementById('scans').innerHTML += '<a class="btn btn-primary" target="_blank" href="https://oat.hisgis.nl/oat/faces/oatscans/image.xhtml?oatcode=' + window.location.search.substring(1) + '" role="button">Ga naar scan ' + window.location.search.substring(1) + '</a>';
     document.getElementById('gemeente').innerHTML += s.gemeente.code + ' - ' + s.gemeente.naam;
-    document.getElementById('sectie').innerHTML += s.results[0].sectie.letter;
     document.getElementById('sectie').innerHTML += window.location.search.substring(1).charAt(8);
     document.getElementById('blad').innerHTML += parseInt(window.location.search.substring(1).substring(9));
     // console.log(s);
