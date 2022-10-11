@@ -108,6 +108,10 @@ td {
     height:inherit;
 }
 
+.plinks{
+    padding-left:2rem;
+}
+
   .content {
     border-radius: 2px;
     display: flex;
@@ -116,6 +120,7 @@ td {
     align-content: center;
     height: 100%;
     left: 2rem;
+    vertical-align:middle;
     /* margin: 2rem 0;
     padding: 1.5rem; */
   }

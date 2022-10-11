@@ -180,7 +180,7 @@ function getArtikelHTML(a, aantal){
                 accolade.appendChild(inhoud);
                 persoon_h.appendChild(accolade);
             } else {
-                persoon_h.setAttribute("class","border-end");
+                persoon_h.setAttribute("class","border-end plinks");
                 persoon_h.innerHTML = anr + p.lbl();
             }
             h.push(persoon_h);
@@ -212,7 +212,6 @@ function getArtikelHTML(a, aantal){
             let x = document.createElement("td");
             x.setAttribute("rowspan", aantal);
             x.setAttribute("colspan",5);
-            x.setAttribute("class","border-end");
             let pv = new Verwijzing(a.rechtsPersonen[0].persoonsVerwijzing);
             if(aantal > 1){
                 x.setAttribute("class","container border-end");
@@ -225,6 +224,7 @@ function getArtikelHTML(a, aantal){
                 accolade.appendChild(inhoud);
                 x.appendChild(accolade);
             } else {
+                x.setAttribute("class","border-end plinks");
                 x.innerHTML = anr + pv.lbl();
             }
             h.push(x);
@@ -232,9 +232,7 @@ function getArtikelHTML(a, aantal){
             let x = document.createElement("td");
             x.setAttribute("rowspan", aantal);
             x.setAttribute("colspan",5);
-            x.setAttribute("class","border-end");
             let instantie = new Instantie(a.rechtsPersonen[0].instantie);
-
             if(aantal > 1){
                 x.setAttribute("class","container border-end");
                 let accolade = document.createElement("div");
@@ -246,6 +244,7 @@ function getArtikelHTML(a, aantal){
                 accolade.appendChild(inhoud);
                 x.appendChild(accolade);
             } else {
+                x.setAttribute("class","border-end plinks");
                 x.innerHTML = anr + instantie.lbl();
             }
             h.push(x);
