@@ -6,6 +6,7 @@ if(q.length>1){
 }
 
 function verwerkScan(s){
+    document.getElementById('scans').innerHTML += '<a class="btn btn-primary" href="https://oat.hisgis.nl/oat/faces/oatscans/image.xhtml?oatcode=' + window.location.search.substring(1) + '" role="button">Ga naar scan ' + window.location.search.substring(1) + '</a>';
     // console.log(s);
     var t = document.getElementById('tbl_percelen_body');
     var artikelen = [];
