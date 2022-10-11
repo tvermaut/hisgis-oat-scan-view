@@ -75,7 +75,7 @@ function verwerkScan(s){
         for(let i of getOppervlakHTML(pts.k5)){pi.appendChild(i);}
         let k_geb = document.createElement("td");
         k_geb.setAttribute("class","text-center");
-        k_geb.innerHTML = (pts.k_geb || '');
+        k_geb.innerHTML = ('<span class="gebouwde_klasse badge p-1 m-1">' + pts.k_geb + '</span>' || '');
         pi.appendChild(k_geb);
         for(let i of getBedragHTML(pts.t1)){pi.appendChild(i);}
         for(let i of getBedragHTML(pts.t2)){pi.appendChild(i);}

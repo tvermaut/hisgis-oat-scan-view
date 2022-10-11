@@ -74,6 +74,10 @@ th.uit{
     color: white;    
 }
 
+.gebouwde_klasse{
+    border-color: #aa0000;
+    color: #aa0000;
+}
 
 body {
     --red: 0;
