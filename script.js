@@ -21,6 +21,7 @@ function verwerkScan(s){
         let p = p_sort[px];
         let pi = document.createElement("tr");
         pi.setAttribute("style","height: 1px;");
+
         let pnr = document.createElement("td");
         pnr.innerHTML = p.perceelnr;
         if(p.perceelnrtvg){pnr.innerHTML += "/" + p.perceelnrtvg;}
@@ -162,7 +163,7 @@ function getArtikelHTML(a, aantal){
 
     var anr = a.artikelnr;
     if(a.artikelnrtvg){anr += "/" + a.artikelnrtvg;}
-    anr = '<span class="badge artikelnr py-1 px-2 mx-2">' + anr + '</span>';
+    anr = '<span class="badge artikelnr py-1 px-2">' + anr + '</span>';
 
     if(a.rechtsPersonen && a.rechtsPersonen.length == 1){
         if(a.rechtsPersonen[0].type == "PERSOON"){
