@@ -89,7 +89,7 @@ th.uit{
     font-size: small;
 }
 
-/* body {
+body {
     --red: 0;
     --green: 157;
     --blue: 224;
@@ -103,7 +103,7 @@ th.uit{
     --color-dark-ultralight: rgba(44, 63, 72, 0.06);
   
     --color-background: var(--color-white)
-  } */
+  }
   
 #tbl_percelen > tbody > tr > td {
     height:inherit;
