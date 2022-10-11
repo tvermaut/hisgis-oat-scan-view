@@ -115,7 +115,7 @@ body {
 }
 
 #tbl_percelen > tbody > tr > td.plinks{
-    padding-left:2rem;
+    padding-left:1.5rem;
 }
 
   .content {
@@ -131,7 +131,7 @@ body {
     padding: 1.5rem; */
   }
   .accolade .content {
-    padding-left: 1rem;
+    padding-left: 1.5rem;
   }
   .accolade {
     height: 100%;
