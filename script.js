@@ -29,7 +29,7 @@ function verwerkScan(s){
         let pnr = document.createElement("td");
         pnr.innerHTML = p.perceelnr;
         if(p.perceelnrtvg){pnr.innerHTML += "/" + p.perceelnrtvg;}
-        pnr.setAttribute("class","pe-1 text-end boerder-end-0");
+        pnr.setAttribute("class","pe-1 text-end border-end-0");
         pi.appendChild(pnr);
 
         var aantal_a = 1;
@@ -46,14 +46,14 @@ function verwerkScan(s){
 
         // grondgebruik
         let soort = document.createElement("td");
-        soort.setAttribute("class","text-end");
+        soort.setAttribute("class","text-end border-end-0");
         soort.setAttribute("style","line-height:115%;");
         soort.innerHTML = p.grondGebruik;
         pi.appendChild(soort);
 
         // huisnrs
         let huisnrs = document.createElement("td");
-        huisnrs.setAttribute("class","text-center");
+        huisnrs.setAttribute("class","border-start-0 text-center");
         var hnr = ""
         for(hi of p.huisnrs){
             hnr += (hnr.length > 0 ? ', ' : '');
@@ -177,7 +177,7 @@ function getArtikelHTML(a, aantal){
             persoon_h.setAttribute("rowspan", aantal);
             persoon_h.setAttribute("colspan", 5);
             if(aantal > 1){
-                persoon_h.setAttribute("class","container boerder-start-0 border-end");
+                persoon_h.setAttribute("class","container border-start-0 border-end");
                 let accolade = document.createElement("div");
                 accolade.setAttribute("class", "accolade");
                 let inhoud = document.createElement("div");
