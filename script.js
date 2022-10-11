@@ -136,7 +136,7 @@ function getOppervlakHTML(opp){
 
 function getBedragHTML(bedrag){
     var h = [];
-    if(b > 0){
+    if(bedrag > 0){
         let b = Math.round(bedrag);
         let c = b % 100;
         let g = (b-c)/100;
