@@ -265,7 +265,11 @@ function getArtikelHTML(a, aantal){
         x.setAttribute("colspan",5);
         h.push(x);
     } else {
-        console.error(a.rechtsPersonen)
+        let x = document.createElement("td");
+        x.setAttribute("rowspan", aantal);
+        x.setAttribute("colspan",5);
+        x.innerHTML = "[Artikel zonder rechtspersonen]";
+        h.push(x);
     }
 
 
