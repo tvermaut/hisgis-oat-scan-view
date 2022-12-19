@@ -268,7 +268,7 @@ function getArtikelHTML(a, aantal){
         let x = document.createElement("td");
         x.setAttribute("rowspan", aantal);
         x.setAttribute("colspan",5);
-        x.innerHTML = "[Artikel zonder rechtspersonen]";
+        x.innerHTML = "[Artikel" + anr + ": geen rechtspersonen]";
         h.push(x);
     }
 
