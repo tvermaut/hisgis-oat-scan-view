@@ -162,132 +162,49 @@ function getBedragHTML(bedrag){
     return h
 }
 
-function verwerkRechtspersoon(rp, h, anr){
-    if(rp.type == "PERSOON"){
-        let p = new Persoon(a.rechtsPersonen[0].persoon);
-
-        let persoon_h = document.createElement("td");
-        persoon_h.setAttribute("rowspan", aantal);
-        persoon_h.setAttribute("colspan", 5);
-        if(aantal > 1){
-            persoon_h.setAttribute("class","container border-start-0 border-end");
-            let accolade = document.createElement("div");
-            accolade.setAttribute("class", "accolade");
-            let inhoud = document.createElement("div");
-            inhoud.setAttribute("class", "content my-auto");
-
-            inhoud.innerHTML = anr + p.lbl();
-            accolade.appendChild(inhoud);
-            persoon_h.appendChild(accolade);
-        } else {
-            persoon_h.setAttribute("class","border-start-0 border-end plinks");
-            persoon_h.innerHTML = anr + p.lbl();
-        }
-        h.push(persoon_h);
-
-        // // voornaam
-        // let vnaam_h = document.createElement("td");
-        // vnaam_h.setAttribute("rowspan", aantal);
-        // vnaam_h.setAttribute("class", "border-start border-end");
-        // if(p.titel){vnaam_h.innerHTML += p.titel + " ";}
-        // vnaam_h.innerHTML += p.voornaam;
-        // if(p.voorvoegsel){vnaam_h.innerHTML += ", " + p.voorvoegsel;}
-        // h.push(vnaam_h);
-
-        // // beroep
-        // let beroep_h = document.createElement("td");
-        // beroep_h.setAttribute("rowspan", aantal);
-        // beroep_h.setAttribute("class", "border-start border-end");
-        // beroep_h.innerHTML = p.beroep;
-        // h.push(beroep_h);
-
-        // // woonplaats
-        // let woonplaats_h = document.createElement("td");
-        // woonplaats_h.setAttribute("rowspan", aantal);
-        // woonplaats_h.setAttribute("class", "border-start border-end");
-        // woonplaats_h.innerHTML = p.woonplaats;
-        // h.push(woonplaats_h);
-    } else if (a.rechtsPersonen[0].type == "VERWIJZING") {
-        // geen PERSOON
-        let x = document.createElement("td");
-        x.setAttribute("rowspan", aantal);
-        x.setAttribute("colspan",5);
-        let pv = new Verwijzing(a.rechtsPersonen[0].persoonsVerwijzing);
-        if(aantal > 1){
-            x.setAttribute("class","container border-end");
-            let accolade = document.createElement("div");
-            accolade.setAttribute("class", "accolade");
-            let inhoud = document.createElement("div");
-            inhoud.setAttribute("class", "content my-auto");
-
-            inhoud.innerHTML = anr + pv.lbl();
-            accolade.appendChild(inhoud);
-            x.appendChild(accolade);
-        } else {
-            x.setAttribute("class","border-end plinks");
-            x.innerHTML = anr + pv.lbl();
-        }
-        h.push(x);
-    } else if (a.rechtsPersonen[0].type == "INSTANTIE"){
-        let x = document.createElement("td");
-        x.setAttribute("rowspan", aantal);
-        x.setAttribute("colspan",5);
-        let instantie = new Instantie(a.rechtsPersonen[0].instantie);
-        if(aantal > 1){
-            x.setAttribute("class","container border-end");
-            let accolade = document.createElement("div");
-            accolade.setAttribute("class", "accolade");
-            let inhoud = document.createElement("div");
-            inhoud.setAttribute("class", "content my-auto");
-
-            inhoud.innerHTML = anr + instantie.lbl();
-            accolade.appendChild(inhoud);
-            x.appendChild(accolade);
-        } else {
-            x.setAttribute("class","border-end plinks");
-            x.innerHTML = anr + instantie.lbl();
-        }
-        h.push(x);
-    } else {
-        console.error("onherkend type: " + a.rechtsPersonen[0].type);
-    }
-    return h
-}
-
 function getArtikelHTML(a, aantal){
-    var h = [];
-
     var anr = a.artikelnr;
     if(a.artikelnrtvg){anr += "/" + a.artikelnrtvg;}
     anr = '<span class="badge artikelnr py-1 px-2 me-1">' + anr + '</span>';
 
-    if(a.rechtsPersonen && a.rechtsPersonen.length == 1){
-        h = verwerkRechtspersoon(a.rechtsPersonen[0], h, anr);
-    } else if (a.rechtsPersonen && a.rechtsPersonen.length > 1){
-        // meer dan 1 RP
-        let x = document.createElement("td");
-        x.setAttribute("rowspan", aantal);
-        x.setAttribute("colspan",5);
-        h.push(x);
+    let rphs = a.rechtsPersonen.map(x => verwerkRechtspersoon(x));
+    let rph = rphs.join(' en ');
+
+    let h = document.createElement("td");
+    h.setAttribute("rowspan", aantal);
+    h.setAttribute("colspan", 5);
+    if(aantal > 1){
+        h.setAttribute("class","container border-start-0 border-end");
+        let accolade = document.createElement("div");
+        accolade.setAttribute("class", "accolade");
+        let inhoud = document.createElement("div");
+        inhoud.setAttribute("class", "content my-auto");
+
+        inhoud.innerHTML = anr + rph;
+        accolade.appendChild(inhoud);
+        h.appendChild(accolade);
     } else {
-        let x = document.createElement("td");
-        x.setAttribute("rowspan", aantal);
-        x.setAttribute("colspan",5);
-        x.innerHTML = "[Artikel" + anr + ": geen rechtspersonen]";
-        h.push(x);
+        h.setAttribute("class","border-start-0 border-end plinks");
+        h.innerHTML = anr + rph;
     }
-
-
-    // // artikelnummer
-    // let anr_html = document.createElement("td");
-    // anr_html.setAttribute("rowspan", aantal);
-
-
-
-    // anr_html.innerHTML = anr;
-    // anr_html.setAttribute("class","pe-1 text-end");
-    // h.push(anr_html);
     return h
+}
+
+function verwerkRechtspersoon(rp){
+    let r;
+    if(rp.type == "PERSOON"){
+        let p = new Persoon(rp.persoon);
+        r = p.lbl();
+    } else if (a.rechtsPersonen[0].type == "VERWIJZING") {
+        let pv = new Verwijzing(a.rechtsPersonen[0].persoonsVerwijzing);
+        r = pv.lbl();
+    } else if (a.rechtsPersonen[0].type == "INSTANTIE"){
+        let instantie = new Instantie(a.rechtsPersonen[0].instantie);
+        r = instantie.lbl();
+    } else {
+        console.error("onherkend type: " + a.rechtsPersonen[0].type);
+    }
+    return r
 }
 
 class Artikel {
