@@ -164,6 +164,7 @@ function getBedragHTML(bedrag){
 
 function getArtikelHTML(a, aantal){
     var anr = a.artikelnr;
+    console.log(a);
     if(a.hasOwnProperty('artikelnrtvg') && a != null){anr += "/" + a.artikelnrtvg;}
     anr = '<span class="badge artikelnr py-1 px-2 me-1">' + anr + '</span>';
 
