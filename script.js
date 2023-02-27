@@ -206,7 +206,7 @@ function verwerkRechtspersoon(rp){
         console.error("onherkend type: " + rp.type);
     }
     if(rp.rol != "EIGENAAR"){
-        r += " [" + rp.rol + "]"
+        r += '<span class="badge rol p-1">' + rp.rol + '</span>' 
     }
     return r
 }
