@@ -40,9 +40,8 @@ function verwerkScan(s){
             let aid = p.artikelLink.artikelnr;
             if(p.artikelLink.artikelnrtvg){aid += p.artikelLink.artikelnrtvg;}
             let a = artikelen[aid];
-            let as = getArtikelHTML(a, aantal_a);
-            console.log(as);
-            for(let ai of as){pi.appendChild(ai);}
+            let ai = getArtikelHTML(a, aantal_a);
+            pi.appendChild(ai);
         }
 
         // grondgebruik
