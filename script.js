@@ -165,7 +165,7 @@ function getBedragHTML(bedrag){
 function getArtikelHTML(a, aantal){
     var anr = a.artikelnr;
     console.log(a);
-    if(a.hasOwnProperty('artikelnrtvg') && a != null){anr += "/" + a.artikelnrtvg;}
+    if(a.hasOwnProperty('artikelnrtvg') && a != null && a.artikelnrtvg != ""){anr += "/" + a.artikelnrtvg;}
     anr = '<span class="badge artikelnr py-1 px-2 me-1">' + anr + '</span>';
 
     let rphs = a.rechtsPersonen.map(x => verwerkRechtspersoon(x));
@@ -204,6 +204,9 @@ function verwerkRechtspersoon(rp){
         r = instantie.lbl();
     } else {
         console.error("onherkend type: " + rp.type);
+    }
+    if(rp.rol != "EIGENAAR"){
+        r += " [" + rp.rol + "]"
     }
     return r
 }
