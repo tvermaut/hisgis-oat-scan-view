@@ -196,14 +196,14 @@ function verwerkRechtspersoon(rp){
     if(rp.type == "PERSOON"){
         let p = new Persoon(rp.persoon);
         r = p.lbl();
-    } else if (a.rechtsPersonen[0].type == "VERWIJZING") {
-        let pv = new Verwijzing(a.rechtsPersonen[0].persoonsVerwijzing);
+    } else if (rp.type == "VERWIJZING") {
+        let pv = new Verwijzing(rp.persoonsVerwijzing);
         r = pv.lbl();
-    } else if (a.rechtsPersonen[0].type == "INSTANTIE"){
-        let instantie = new Instantie(a.rechtsPersonen[0].instantie);
+    } else if (rp.type == "INSTANTIE"){
+        let instantie = new Instantie(rp.instantie);
         r = instantie.lbl();
     } else {
-        console.error("onherkend type: " + a.rechtsPersonen[0].type);
+        console.error("onherkend type: " + rp.type);
     }
     return r
 }
