@@ -41,6 +41,7 @@ function verwerkScan(s){
             if(p.artikelLink.artikelnrtvg){aid += p.artikelLink.artikelnrtvg;}
             let a = artikelen[aid];
             let as = getArtikelHTML(a, aantal_a);
+            console.log(as);
             for(let ai of as){pi.appendChild(ai);}
         }
 
