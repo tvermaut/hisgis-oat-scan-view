@@ -164,7 +164,7 @@ function getBedragHTML(bedrag){
 
 function getArtikelHTML(a, aantal){
     var anr = a.artikelnr;
-    if(a.artikelnrtvg){anr += "/" + a.artikelnrtvg;}
+    if(a.hasOwnProperty('artikelnrtvg') && a.artikelnrtvg != null){anr += "/" + a.artikelnrtvg;}
     anr = '<span class="badge artikelnr py-1 px-2 me-1">' + anr + '</span>';
 
     let rphs = a.rechtsPersonen.map(x => verwerkRechtspersoon(x));
