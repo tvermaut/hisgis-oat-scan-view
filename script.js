@@ -20,7 +20,7 @@ function verwerkScan(s){
         if(a.artikelnrtvg){artikelid += a.artikelnrtvg;}
         artikelen[artikelid] = a;
         }
-    var p_sort = (s.results).sort((p1, p2) => (p1.perceelnr < p2.perceelnr) ? -1 : (p1.perceelnr > p2.perceelnr) ? 1 : 0);        
+    var p_sort = (s.results).sort((p1, p2) => (p1.perceelnr < p2.perceelnr) ? -1 : (p1.perceelnr > p2.perceelnr) ? 1 : ( (p1.perceelnr = p2.perceelnr) ? ( (p1.pereelnrtvg < p2.perceelnrtvg) ? 1 : 0 ) : 0));        
     for(let px in p_sort){
         let p = p_sort[px];
         let pi = document.createElement("tr");
