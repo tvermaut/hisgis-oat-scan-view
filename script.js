@@ -173,7 +173,7 @@ function getArtikelHTML(a, aantal){
     anr = '<span class="badge artikelnr py-1 px-2 me-1">' + anr + '</span>';
 
     var cs = '';
-    if(a.cs === 'true'){
+    if(a.consorten === 'true'){
         cs = ' <span class="badge consorten py-1 px-2 me-1">c.s.</span>';
     }
 
