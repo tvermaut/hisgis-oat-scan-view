@@ -172,8 +172,13 @@ function getArtikelHTML(a, aantal){
     if(a.hasOwnProperty('artikelnrtvg') && a != null && a.artikelnrtvg != ""){anr += "/" + a.artikelnrtvg;}
     anr = '<span class="badge artikelnr py-1 px-2 me-1">' + anr + '</span>';
 
+    let cs = '';
+    if(a.cs){
+        cs = ' <span class="badge consorten py-1 px-2 me-1">c.s.</span>';
+    }
+
     let rphs = a.rechtsPersonen.map(x => verwerkRechtspersoon(x));
-    let rph = rphs.join(' en ');
+    let rph = rphs.join(' en ') + cs;
 
     let h = document.createElement("td");
     h.setAttribute("rowspan", aantal);

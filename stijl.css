@@ -73,6 +73,13 @@ th.uit{
     color: black;    
 }
 
+.consorten{
+    background-color: #B3C6E7 !important;
+    font-weight: bold;
+    font-size: normal;
+    color: black;       
+}
+
 .huisnr{
     background-color: rgb(50,50,137) !important;
     font-weight: bold;
