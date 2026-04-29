@@ -173,7 +173,7 @@ function getArtikelHTML(a, aantal){
     anr = '<span class="badge artikelnr py-1 px-2 me-1">' + anr + '</span>';
 
     var cs = '';
-    if(a.consorten === 'true'){
+    if(a.consorten){
         cs = ' <span class="badge consorten py-1 px-2 me-1">c.s.</span>';
     }
 
@@ -224,14 +224,14 @@ function verwerkRechtspersoon(rp){
 class Artikel {
     nr;
     tvg;
-    cs;
+    consorten;
     reeks;
     rechtsPersonen;
 
     constructor(json){
         this.nr = json.artikelnr;
         this.tvg = json.artikelnrtvg || '';
-        this.cs = json.consorten;
+        this.consorten = json.consorten;
         this.reeks = json.reeks;
         this.rechtsPersonen = []
     }
