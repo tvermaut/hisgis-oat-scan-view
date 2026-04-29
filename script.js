@@ -172,7 +172,7 @@ function getArtikelHTML(a, aantal){
     if(a.hasOwnProperty('artikelnrtvg') && a != null && a.artikelnrtvg != ""){anr += "/" + a.artikelnrtvg;}
     anr = '<span class="badge artikelnr py-1 px-2 me-1">' + anr + '</span>';
 
-    let cs = '';
+    var cs = '';
     if(a.cs){
         cs = ' <span class="badge consorten py-1 px-2 me-1">c.s.</span>';
     }
