@@ -178,7 +178,8 @@ function getArtikelHTML(a, aantal){
     }
 
     let rphs = a.rechtsPersonen.map(x => verwerkRechtspersoon(x));
-    let rph = rphs.join(' en ') + cs;
+    let rph = rphs.join(' en ');
+    rph = rph + cs;
 
     let h = document.createElement("td");
     h.setAttribute("rowspan", aantal);
